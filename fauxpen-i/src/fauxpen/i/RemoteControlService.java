@@ -8,19 +8,24 @@ package fauxpen.i;
 import java.awt.Component;
 import java.awt.Container;
 import java.awt.Window;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Iterator;
+import javax.imageio.ImageIO;
 import javax.jws.WebMethod;
 import javax.jws.WebService;
 import javax.swing.JButton;
+import swingdriver.IWebDriver;
 
 @WebService(name = "RemoteControlService" ,serviceName = "RemoteControlService")
 /**
  *
  * @author Mike
  */
-public class RemoteControlService {
+public class RemoteControlService   {
     
     
     
@@ -69,6 +74,28 @@ public class RemoteControlService {
          }
         return null;
     }
+    @WebMethod(operationName = "ScreenShot") 
+    public   byte[] getScreenShot(String WindowName) throws IOException {
+        Component component = FindWindow( WindowName);
+        BufferedImage image = new BufferedImage(component.getWidth(),component.getHeight(),BufferedImage.TYPE_INT_RGB);
+        // call the Component's paint method, using
+        // the Graphics object of the image.
+        component.paint( image.getGraphics() ); // alternately use .printAll(..)
+        
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+	
+        ImageIO.write( image, "png", baos );
+	baos.flush();
+	byte[] imageInByte = baos.toByteArray();
+	baos.close();
+ 
+ 
+                
+        
+        return imageInByte;
+    }
+    
+    
     
     public static Component FindControl(Window Window, String ControlID)
     {

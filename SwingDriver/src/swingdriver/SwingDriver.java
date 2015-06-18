@@ -5,6 +5,9 @@
  */
 package swingdriver;
 
+import java.awt.Component;
+import java.awt.image.BufferedImage;
+
 /**
  *
  * @author Mike
@@ -17,5 +20,15 @@ public class SwingDriver {
     public static void main(String[] args) {
         // TODO code application logic here
     }
+    
+    public static BufferedImage getScreenShot(Component component) {
+        BufferedImage image = new BufferedImage(component.getWidth(),component.getHeight(),BufferedImage.TYPE_INT_RGB);
+        // call the Component's paint method, using
+        // the Graphics object of the image.
+        component.paint( image.getGraphics() ); // alternately use .printAll(..)
+        return image;
+  }
+    
+    
     
 }
