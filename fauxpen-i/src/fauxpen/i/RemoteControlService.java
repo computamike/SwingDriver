@@ -5,37 +5,45 @@
  */
 package fauxpen.i;
 
+ 
+import fauxpen.i.OGIComponents.OGIComponent;
 import java.awt.Component;
-import java.awt.Container;
+import java.awt.Label;
 import java.awt.Window;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.lang.reflect.Field;
 import java.util.List;
 import java.util.ArrayList;
-import java.util.Iterator;
 import javax.imageio.ImageIO;
 import javax.jws.WebMethod;
 import javax.jws.WebService;
 import javax.swing.JButton;
-import swingdriver.IWebDriver;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+
 
 @WebService(name = "RemoteControlService" ,serviceName = "RemoteControlService")
 /**
  *
  * @author Mike
  */
-public class RemoteControlService   {
+public class RemoteControlService implements IWebDriver {
     
     
     
     @WebMethod(operationName = "GetString")
+    @Override
     public String GetString()
     {
         return "Hello World";
     }
     
     @WebMethod(operationName = "GetForms") 
+    @Override
     public String GetForms()
     {
         Window[] windows =    MainForm.getWindows();
@@ -50,30 +58,50 @@ public class RemoteControlService   {
         return result;
     }
     
-    public static List<Component> getAllComponents(final Container c) {
-    Component[] comps = c.getComponents();
-    List<Component> compList = new ArrayList<Component>();
-    for (Component comp : comps) {
-        compList.add(comp);
-        if (comp instanceof Container)
-            compList.addAll(getAllComponents((Container) comp));
-    }
+    @WebMethod(operationName = "GetControlsList")
+    public List<String> GetControlsList( String WindowName) throws IllegalArgumentException, IllegalAccessException {
+       Component c=  FindWindow(WindowName);
+        Field[] f =c.getClass().getDeclaredFields();
+        List<String> compList = new ArrayList<String>();
+                
+        for(Field field:f){
+            if(Component.class.isAssignableFrom(field.getType()))
+            {
+                                
+                field.setAccessible(true);
+
+//                final Object potentialMatch = field.get(c);
+//                OGIComponent str = (OGIComponent)potentialMatch;
+                compList.add(field.getName());
+            } 
+
+        }
     return compList;
 }
     
-    public static Window FindWindow(String WindowName)
-    {
-        Window[] windows =    MainForm.getWindows();
-      
- 
-        for (int i = 0; i < windows.length; i++) {
-            Window window = windows[i]; 
-            if (window.getName().equals(WindowName)) {
-               return window;
-            }
-         }
-        return null;
+    private OGIComponent ConvertComponentToOGIComponent(Component C)
+    {   OGIComponent convertedType = new OGIComponent();
+        
+        if (C.getClass().isAssignableFrom(JButton.class))
+        {
+            return new OGIComponent((JButton)C);
+        }
+        
+        if (C.getClass().isAssignableFrom(JTextField.class))
+        {
+            return new OGIComponent((JTextField)C);
+        }
+        
+        
+        return convertedType;
     }
+    
+    /**
+     * Takes a screen shot / image of the named window / form.
+     * @param WindowName
+     * @return
+     * @throws IOException
+     */
     @WebMethod(operationName = "ScreenShot") 
     public   byte[] getScreenShot(String WindowName) throws IOException {
         Component component = FindWindow( WindowName);
@@ -96,59 +124,241 @@ public class RemoteControlService   {
     }
     
     
-    
-    public static Component FindControl(Window Window, String ControlID)
-    {
-        List<Component> Controls = getAllComponents(Window);
-        for (Component Control : Controls) {
-            
-            if (Control.getName() != null && Control.getName().equals(ControlID)) {
-                return Control;
-            }
-                 
+    @WebMethod(operationName = "GetControl")
+    public OGIComponent GetControl( String WindowName, String Control ) throws IllegalArgumentException, IllegalAccessException {
+       Component c=  FindWindow(WindowName);
+        Field[] f =c.getClass().getDeclaredFields();
+        OGIComponent compList = new OGIComponent();
+                
+        for(Field field:f){
+            if(Component.class.isAssignableFrom(field.getType()))
+            {
+                field.setAccessible(true);
+                if  (field.getName().equals(Control))          
+                {         
+                    
+                    final Component potentialMatch = (Component)field.get(c);
+//                OGIComponent str = (OGIComponent)potentialMatch;
+                  compList=   ConvertComponentToOGIComponent(potentialMatch);
+                }
+            } 
+
         }
+    return compList;
+    }
+    
+ 
+    @WebMethod(operationName = "ClickButton")
+    public void ClickButton( String WindowName, String Control ) throws IllegalArgumentException, IllegalAccessException {
+       Component c=  FindWindow(WindowName);
+        Field[] f =c.getClass().getDeclaredFields();
+        OGIComponent compList = new OGIComponent();
+                
+        for(Field field:f){
+            if(JButton.class.isAssignableFrom(field.getType()))
+            {
+                field.setAccessible(true);
+                if  (field.getName().equals(Control))
+                {         
+                    
+                    final JButton potentialMatch = (JButton)field.get(c);
+//                potenti
+                    potentialMatch.doClick();
+                }
+            } else {
+            }
+            
+        }
+     }
+    
+    
+    @WebMethod(operationName = "GetControlByLabel")
+    public OGIComponent GetControlByLabel( String WindowName, String Caption ) throws IllegalArgumentException, IllegalAccessException {
+       Component c=  FindWindow(WindowName);
+        Field[] f =c.getClass().getDeclaredFields();
+        OGIComponent compList = new OGIComponent();
+                
+        for(Field field:f){
+            if(JLabel.class.isAssignableFrom(field.getType()))
+            {               
+                field.setAccessible(true);
+                final JLabel potentialMatch = (JLabel)field.get(c);
+                
+                if  (potentialMatch.getText().equals(Caption))          
+                {  
+                    if (potentialMatch.getLabelFor() != null)
+                    {
+                        compList=   ConvertComponentToOGIComponent(potentialMatch.getLabelFor());
+                    }
+                 }
+            } 
+        }
+    return compList;
+    }
+    
+    // - Maybe consider moving these to a utility class?
+    
+    private static void SetControlValue(JTextField TextField, String Value)
+    {
+        TextField.setText(Value);
+    }
+    
+    private static void SetControlValue(JTextArea TextField, String Value)
+    {
+        TextField.setText(Value);
+    }
+    
+    private static void SetControlValue(JComboBox comboBox, String Value)
+    {
+        comboBox.setSelectedItem(Value);
+        
+//        for (int i = 0; comboBox.getItemCount() >= i; i++) 
+//        {
+//            Object itemAt = comboBox.getItemAt(i);
+//            if (comboBox.getItemAt(i).
+//            
+//        }
+    
+    }
+    
+    
+    
+    
+    
+    
+     @WebMethod(operationName = "SetControl")
+    public void SetControl( String WindowName, String Control, String value ) throws IllegalArgumentException, IllegalAccessException {
+       Component c=  FindWindow(WindowName);
+        Field[] f =c.getClass().getDeclaredFields();
+        OGIComponent compList = new OGIComponent();
+                
+        for(Field field:f){
+            if(Component.class.isAssignableFrom(field.getType()))
+            {
+                field.setAccessible(true);
+                if  (field.getName().equals(Control))          
+                {
+                    final Component potentialMatch = (Component)field.get(c);
+//                  OGIComponent str = (OGIComponent)potentialMatch;
+                    compList=   ConvertComponentToOGIComponent(potentialMatch);
+                }
+            } 
+        }
+ 
+        // Check the type of control
+        // Conditionally work with the value passed in 0
+        //
+        // For Text fields - set the value
+        //
+        // For Radio Buttons - click on the option with that label
+        //
+        // for check boxes - click on the option with that label.
+        //
+        // For Drop down lists - select the option with that label.
+        
+    // Do the update here
+         
+    }
+   
+    
+    
+    public static Window FindWindow(String WindowName)
+    {
+        Window[] windows =    MainForm.getWindows();
+      
+ 
+        for (int i = 0; i < windows.length; i++) {
+            Window window = windows[i]; 
+            if (window.getName().equals(WindowName)) {
+               return window;
+            }
+         }
         return null;
     }
     
+//    private static Component FindControl(Window Window, String ControlID) throws IllegalArgumentException, IllegalAccessException
+//    {
+//        List<Component> Controls = getAllComponents(Window);
+//        for (Component Control : Controls) {
+//            
+//            if (Control.getName() != null && Control.getName().equals(ControlID)) {
+//                return Control;
+//            }
+//                 
+//        }
+//        return null;
+//    }
     
-    @WebMethod(operationName = "GetControls") 
-    public String GetControls(String FormName)
-    {
-        Window[] windows =    MainForm.getWindows();
-        String result = "Controls : ";
-        Window RequiredForm = null;
-        for (int i = 0; i < windows.length; i++) {
-            Window window = windows[i];
-            if (window.getName().equals(FormName)) {
-                RequiredForm = window;
-            }
-            
-        }
-        if (RequiredForm != null) 
-        {
-            List<Component> Controls = getAllComponents(RequiredForm);
-            for (Component Control : Controls) {
-                result = result + Control.getName() + "[" + Control.toString() + "]";
-            }
-   
-        }
-        
-         return result;
-    }
     
+//    @WebMethod(operationName = "GetControls") 
+//    public List<Component>  GetControls(String FormName)
+//    {
+//        String result = "ERROR";
+//        Window[] windows =    MainForm.getWindows();
+//        
+//        Window RequiredForm = FindWindow(FormName);
+//         List<Component> Controls = null;
+//         
+//        if (RequiredForm != null) 
+//        {
+//            result = "Controls : ";
+//           
+//            try {
+//                Controls = getAllComponents(RequiredForm);
+//            } catch (IllegalArgumentException ex) {
+//                Logger.getLogger(RemoteControlService.class.getName()).log(Level.SEVERE, null, ex);
+//            } catch (IllegalAccessException ex) {
+//                Logger.getLogger(RemoteControlService.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+//            for (Component Control : Controls) {
+//                result = result + Control.getName() + "[" + Control.toString() + "]";
+//            }
+//   
+//        }
+//        
+//         return Controls;
+//    }
+//    
     
     @WebMethod(operationName = "PressButton")
+    @Override
     public void PressButton()
     {
         Window w = FindWindow("MainForm");
-        Component c=   FindControl(w,"jButton1");
-        if (c instanceof JButton) {
-            JButton j = (JButton)c;
-            j.doClick(50);
+        //Component c = null;
+        //try {
+           // c = (w,"jButton1");
+        //} catch (IllegalArgumentException ex) {
+        //    Logger.getLogger(RemoteControlService.class.getName()).log(Level.SEVERE, null, ex);
+        //} catch (IllegalAccessException ex) {
+        //    Logger.getLogger(RemoteControlService.class.getName()).log(Level.SEVERE, null, ex);
+       // }
+        //if (c instanceof JButton) {
+        //    JButton j = (JButton)c;
+         //   j.doClick(50);
             
-        }
+        //}
          
     }
-    
-    
+
+    @Override
+    public List<String> GetFormsArray() {
+        
+        List<String> results = new ArrayList<String>();
+        Window[] windows =    MainForm.getWindows();
+        for (int i = 0; i < windows.length; i++) {
+            Window window = windows[i];
+            results.add(window.getName());
+        }
+        
+         return results;
+    }
+ 
+
+    @Override
+    public String GetControls(String FormName) {
+   return"foo";
+    }
+
+
 }

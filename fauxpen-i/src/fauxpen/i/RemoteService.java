@@ -6,6 +6,7 @@
 package fauxpen.i;
 
 import com.sun.net.httpserver.HttpContext;
+import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpServer;
 import java.io.IOException;
 import java.net.InetSocketAddress;
@@ -67,6 +68,9 @@ public class RemoteService {
         context = server.createContext("/RemoteService/RemoteControl");
         context.setAuthenticator(new TestBasicAuthenticator("test"));
         endpoint.publish(context);
+ 
+         
+        
     }
 
     private void StopRemoteService() {

@@ -5,8 +5,6 @@
  */
 package swingdriver;
 
-import java.awt.Component;
-import java.awt.image.BufferedImage;
 import java.util.List;
 import javax.swing.JComponent;
 
@@ -15,18 +13,8 @@ import javax.swing.JComponent;
  * @author Mike
  */
 public interface IWebDriver {
+   void close();
+   JComponent findElement(String by);
+   List<JComponent> findElements(String by);
    
-    /**
-     *Closes the SWING application
-     */
-    void close();
-    
-    /**
-     * Find an Element
-     * @param by the Mechanism by which the find is performed
-     * @return
-     */
-    JComponent findElement(By by);
-   List<JComponent> findElements(By by);
-   BufferedImage getScreenShot(Component component);
 }
