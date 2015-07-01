@@ -69,6 +69,7 @@
   </xs:complexType>
   <xs:complexType name="ogiComponent">
     <xs:sequence>
+      <xs:element name="checked" type="xs:boolean" />
       <xs:element minOccurs="0" name="name" type="xs:string" />
       <xs:element minOccurs="0" name="text" type="xs:string" />
       <xs:element minOccurs="0" name="type" type="xs:string" />

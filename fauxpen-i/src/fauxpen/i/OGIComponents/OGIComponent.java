@@ -6,7 +6,9 @@
 package fauxpen.i.OGIComponents;
 
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 /**
@@ -16,6 +18,28 @@ import javax.swing.JTextField;
  
 public class OGIComponent  
 {     
+
+    private boolean Checked;
+
+    /**
+     * Get the value of Checked
+     *
+     * @return the value of Checked
+     */
+    public boolean isChecked() {
+        return Checked;
+    }
+
+    /**
+     * Set the value of Checked
+     *
+     * @param Checked new value of Checked
+     */
+    public void setChecked(boolean Checked) {
+        this.Checked = Checked;
+    }
+
+    
     private String name;
     protected String text;
     
@@ -76,8 +100,19 @@ public class OGIComponent
             setValues(i,  (String)TextField.getItemAt(i));
         }
     }
-        
-        
+    
+    public OGIComponent(JCheckBox TextField) {
+        text = TextField.getText();
+        setChecked(TextField.isSelected());
+        Type = TextField.getClass().getTypeName();
+    }
+       
+    
+        public OGIComponent(JTextArea TextField) {
+        text = TextField.getText();
+        Type = TextField.getClass().getTypeName();
+    }
+    
         
     public OGIComponent() {
         

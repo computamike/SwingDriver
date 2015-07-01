@@ -20,6 +20,7 @@ import javax.imageio.ImageIO;
 import javax.jws.WebMethod;
 import javax.jws.WebService;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
@@ -96,6 +97,17 @@ public class RemoteControlService implements IWebDriver {
         {
             return new OGIComponent((JComboBox)C);
         }
+        
+        if (C.getClass().isAssignableFrom(JCheckBox.class))
+        {
+            return new OGIComponent((JCheckBox)C);
+        }
+        
+        if (C.getClass().isAssignableFrom(JTextArea.class))
+        {
+            return new OGIComponent((JTextArea)C);
+        }
+        
         
         
         
@@ -209,6 +221,12 @@ public class RemoteControlService implements IWebDriver {
         TextField.setText(Value);
     }
     
+    
+    private static void SetControlValue(JCheckBox TextField, String Value)
+    {
+        TextField.setSelected(Boolean.parseBoolean(Value));
+    }
+        
     private static void SetControlValue(JTextArea TextField, String Value)
     {
         TextField.setText(Value);
@@ -255,6 +273,19 @@ public class RemoteControlService implements IWebDriver {
                     {
                          SetControlValue((JTextField)potentialMatch,  value);
                     }
+                                        
+                    if (potentialMatch.getClass().isAssignableFrom(JCheckBox.class))
+                    {
+                         SetControlValue((JCheckBox)potentialMatch,  value);
+                    }
+                                                            
+                    if (potentialMatch.getClass().isAssignableFrom(JTextArea.class))
+                    {
+                         SetControlValue((JTextArea)potentialMatch,  value);
+                    }
+                    
+                    
+                    
                 }
             } 
         }

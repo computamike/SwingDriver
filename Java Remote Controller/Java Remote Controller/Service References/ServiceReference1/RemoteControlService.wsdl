@@ -5,6 +5,15 @@
       <xsd:import schemaLocation="http://localhost:1970/RemoteService/RemoteControl?xsd=1" namespace="http://i.fauxpen/" />
     </xsd:schema>
   </types>
+  <message name="GetControlByLabel">
+    <part name="parameters" element="tns:GetControlByLabel" />
+  </message>
+  <message name="GetControlByLabelResponse">
+    <part name="parameters" element="tns:GetControlByLabelResponse" />
+  </message>
+  <message name="IllegalAccessException">
+    <part name="fault" element="tns:IllegalAccessException" />
+  </message>
   <message name="GetString">
     <part name="parameters" element="tns:GetString" />
   </message>
@@ -22,9 +31,6 @@
   </message>
   <message name="GetControlsListResponse">
     <part name="parameters" element="tns:GetControlsListResponse" />
-  </message>
-  <message name="IllegalAccessException">
-    <part name="fault" element="tns:IllegalAccessException" />
   </message>
   <message name="ScreenShot">
     <part name="parameters" element="tns:ScreenShot" />
@@ -71,13 +77,12 @@
   <message name="GetControlsResponse">
     <part name="parameters" element="tns:GetControlsResponse" />
   </message>
-  <message name="GetControlByLabel">
-    <part name="parameters" element="tns:GetControlByLabel" />
-  </message>
-  <message name="GetControlByLabelResponse">
-    <part name="parameters" element="tns:GetControlByLabelResponse" />
-  </message>
   <portType name="RemoteControlService">
+    <operation name="GetControlByLabel">
+      <input wsam:Action="http://i.fauxpen/RemoteControlService/GetControlByLabelRequest" message="tns:GetControlByLabel" />
+      <output wsam:Action="http://i.fauxpen/RemoteControlService/GetControlByLabelResponse" message="tns:GetControlByLabelResponse" />
+      <fault wsam:Action="http://i.fauxpen/RemoteControlService/GetControlByLabel/Fault/IllegalAccessException" name="IllegalAccessException" message="tns:IllegalAccessException" />
+    </operation>
     <operation name="GetString">
       <input wsam:Action="http://i.fauxpen/RemoteControlService/GetStringRequest" message="tns:GetString" />
       <output wsam:Action="http://i.fauxpen/RemoteControlService/GetStringResponse" message="tns:GetStringResponse" />
@@ -123,14 +128,21 @@
       <input wsam:Action="http://i.fauxpen/RemoteControlService/GetControlsRequest" message="tns:GetControls" />
       <output wsam:Action="http://i.fauxpen/RemoteControlService/GetControlsResponse" message="tns:GetControlsResponse" />
     </operation>
-    <operation name="GetControlByLabel">
-      <input wsam:Action="http://i.fauxpen/RemoteControlService/GetControlByLabelRequest" message="tns:GetControlByLabel" />
-      <output wsam:Action="http://i.fauxpen/RemoteControlService/GetControlByLabelResponse" message="tns:GetControlByLabelResponse" />
-      <fault wsam:Action="http://i.fauxpen/RemoteControlService/GetControlByLabel/Fault/IllegalAccessException" name="IllegalAccessException" message="tns:IllegalAccessException" />
-    </operation>
   </portType>
   <binding name="RemoteControlServicePortBinding" type="tns:RemoteControlService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="GetControlByLabel">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="IllegalAccessException">
+        <soap:fault use="literal" name="IllegalAccessException" namespace="" />
+      </fault>
+    </operation>
     <operation name="GetString">
       <soap:operation soapAction="" />
       <input>
@@ -235,18 +247,6 @@
       <output>
         <soap:body use="literal" />
       </output>
-    </operation>
-    <operation name="GetControlByLabel">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-      <fault name="IllegalAccessException">
-        <soap:fault use="literal" name="IllegalAccessException" namespace="" />
-      </fault>
     </operation>
   </binding>
   <service name="RemoteControlService">
