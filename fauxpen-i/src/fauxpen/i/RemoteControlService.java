@@ -92,6 +92,12 @@ public class RemoteControlService implements IWebDriver {
             return new OGIComponent((JTextField)C);
         }
         
+        if (C.getClass().isAssignableFrom(JComboBox.class))
+        {
+            return new OGIComponent((JComboBox)C);
+        }
+        
+        
         
         return convertedType;
     }
@@ -239,8 +245,16 @@ public class RemoteControlService implements IWebDriver {
                 if  (field.getName().equals(Control))          
                 {
                     final Component potentialMatch = (Component)field.get(c);
-//                  OGIComponent str = (OGIComponent)potentialMatch;
-                    compList=   ConvertComponentToOGIComponent(potentialMatch);
+                    
+                    if (potentialMatch.getClass().isAssignableFrom(JComboBox.class))
+                    {
+                         SetControlValue((JComboBox)potentialMatch,  value);
+                    }
+                    
+                    if (potentialMatch.getClass().isAssignableFrom(JTextField.class))
+                    {
+                         SetControlValue((JTextField)potentialMatch,  value);
+                    }
                 }
             } 
         }

@@ -1,18 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://i.fauxpen/" targetNamespace="http://i.fauxpen/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="ClickButton" type="tns:ClickButton" />
+  <xs:element name="ClickButtonResponse" type="tns:ClickButtonResponse" />
+  <xs:element name="GetControl" type="tns:GetControl" />
+  <xs:element name="GetControlByLabel" type="tns:GetControlByLabel" />
+  <xs:element name="GetControlByLabelResponse" type="tns:GetControlByLabelResponse" />
+  <xs:element name="GetControlResponse" type="tns:GetControlResponse" />
   <xs:element name="GetControls" type="tns:GetControls" />
+  <xs:element name="GetControlsList" type="tns:GetControlsList" />
+  <xs:element name="GetControlsListResponse" type="tns:GetControlsListResponse" />
   <xs:element name="GetControlsResponse" type="tns:GetControlsResponse" />
   <xs:element name="GetForms" type="tns:GetForms" />
+  <xs:element name="GetFormsArray" type="tns:GetFormsArray" />
+  <xs:element name="GetFormsArrayResponse" type="tns:GetFormsArrayResponse" />
   <xs:element name="GetFormsResponse" type="tns:GetFormsResponse" />
   <xs:element name="GetString" type="tns:GetString" />
   <xs:element name="GetStringResponse" type="tns:GetStringResponse" />
   <xs:element name="IOException" type="tns:IOException" />
+  <xs:element name="IllegalAccessException" type="tns:IllegalAccessException" />
   <xs:element name="PressButton" type="tns:PressButton" />
   <xs:element name="PressButtonResponse" type="tns:PressButtonResponse" />
   <xs:element name="ScreenShot" type="tns:ScreenShot" />
   <xs:element name="ScreenShotResponse" type="tns:ScreenShotResponse" />
-  <xs:element name="onMessage" type="tns:onMessage" />
-  <xs:element name="onMessageResponse" type="tns:onMessageResponse" />
+  <xs:element name="SetControl" type="tns:SetControl" />
+  <xs:element name="SetControlResponse" type="tns:SetControlResponse" />
+  <xs:complexType name="ClickButton">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ClickButtonResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="IllegalAccessException">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="message" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
   <xs:complexType name="GetControls">
     <xs:sequence>
       <xs:element minOccurs="0" name="arg0" type="xs:string" />
@@ -29,6 +54,25 @@
   <xs:complexType name="GetFormsResponse">
     <xs:sequence>
       <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GetControl">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GetControlResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:ogiComponent" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ogiComponent">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="name" type="xs:string" />
+      <xs:element minOccurs="0" name="text" type="xs:string" />
+      <xs:element minOccurs="0" name="type" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="values" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="ScreenShot">
@@ -52,14 +96,33 @@
   <xs:complexType name="PressButtonResponse">
     <xs:sequence />
   </xs:complexType>
-  <xs:complexType name="onMessage">
+  <xs:complexType name="GetFormsArray">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="GetFormsArrayResponse">
     <xs:sequence>
-      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="onMessageResponse">
+  <xs:complexType name="SetControl">
     <xs:sequence>
-      <xs:element minOccurs="0" name="return" type="xs:string" />
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SetControlResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="GetControlByLabel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GetControlByLabelResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:ogiComponent" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="GetString">
@@ -68,6 +131,16 @@
   <xs:complexType name="GetStringResponse">
     <xs:sequence>
       <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GetControlsList">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GetControlsListResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
 </xs:schema>

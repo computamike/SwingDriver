@@ -16,3 +16,23 @@ C:\Users\mhingley\documents\visual studio 2013\Projects\Java Remote Controller\J
 C:\Users\mhingley\documents\visual studio 2013\Projects\Java Remote Controller\Java Remote Controller\bin\Debug\System.Net.Http.Formatting.xml
 C:\Users\mhingley\documents\visual studio 2013\Projects\Java Remote Controller\Java Remote Controller\bin\Debug\System.Web.Http.xml
 C:\Users\mhingley\documents\visual studio 2013\Projects\Java Remote Controller\Java Remote Controller\bin\Debug\System.Web.Http.SelfHost.xml
+C:\Projects\GitHub\SwingDriver\Java Remote Controller\Java Remote Controller\bin\Debug\Java Remote Controller.exe.config
+C:\Projects\GitHub\SwingDriver\Java Remote Controller\Java Remote Controller\obj\Debug\Java Remote Controller.exe
+C:\Projects\GitHub\SwingDriver\Java Remote Controller\Java Remote Controller\obj\Debug\Java Remote Controller.pdb
+C:\Projects\GitHub\SwingDriver\Java Remote Controller\Java Remote Controller\bin\Debug\Java Remote Controller.exe
+C:\Projects\GitHub\SwingDriver\Java Remote Controller\Java Remote Controller\bin\Debug\Java Remote Controller.pdb
+C:\Projects\GitHub\SwingDriver\Java Remote Controller\Java Remote Controller\bin\Debug\Newtonsoft.Json.dll
+C:\Projects\GitHub\SwingDriver\Java Remote Controller\Java Remote Controller\bin\Debug\nunit.framework.dll
+C:\Projects\GitHub\SwingDriver\Java Remote Controller\Java Remote Controller\bin\Debug\System.Net.Http.Formatting.dll
+C:\Projects\GitHub\SwingDriver\Java Remote Controller\Java Remote Controller\bin\Debug\System.Web.Http.dll
+C:\Projects\GitHub\SwingDriver\Java Remote Controller\Java Remote Controller\bin\Debug\System.Web.Http.SelfHost.dll
+C:\Projects\GitHub\SwingDriver\Java Remote Controller\Java Remote Controller\bin\Debug\WebSocket4Net.dll
+C:\Projects\GitHub\SwingDriver\Java Remote Controller\Java Remote Controller\bin\Debug\Newtonsoft.Json.xml
+C:\Projects\GitHub\SwingDriver\Java Remote Controller\Java Remote Controller\bin\Debug\nunit.framework.xml
+C:\Projects\GitHub\SwingDriver\Java Remote Controller\Java Remote Controller\bin\Debug\System.Net.Http.Formatting.xml
+C:\Projects\GitHub\SwingDriver\Java Remote Controller\Java Remote Controller\bin\Debug\System.Web.Http.xml
+C:\Projects\GitHub\SwingDriver\Java Remote Controller\Java Remote Controller\bin\Debug\System.Web.Http.SelfHost.xml
+C:\Projects\GitHub\SwingDriver\Java Remote Controller\Java Remote Controller\obj\Debug\Java Remote Controller.csprojResolveAssemblyReference.cache
+C:\Projects\GitHub\SwingDriver\Java Remote Controller\Java Remote Controller\obj\Debug\Java_Remote_Controller.Form1.resources
+C:\Projects\GitHub\SwingDriver\Java Remote Controller\Java Remote Controller\obj\Debug\Java_Remote_Controller.Properties.Resources.resources
+C:\Projects\GitHub\SwingDriver\Java Remote Controller\Java Remote Controller\obj\Debug\Java Remote Controller.csproj.GenerateResource.Cache

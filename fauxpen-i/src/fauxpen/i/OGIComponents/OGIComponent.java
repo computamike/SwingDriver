@@ -6,6 +6,7 @@
 package fauxpen.i.OGIComponents;
 
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JTextField;
 
 /**
@@ -18,6 +19,46 @@ public class OGIComponent
     private String name;
     protected String text;
     
+    private String[] Values;
+
+    /**
+     * Get the value of Values
+     *
+     * @return the value of Values
+     */
+    public String[] getValues() {
+        return Values;
+    }
+
+    /**
+     * Set the value of Values
+     *
+     * @param Values new value of Values
+     */
+    public void setValues(String[] Values) {
+        this.Values = Values;
+    }
+
+    /**
+     * Get the value of Values at specified index
+     *
+     * @param index the index of Values
+     * @return the value of Values at specified index
+     */
+    public String getValues(int index) {
+        return this.Values[index];
+    }
+
+    /**
+     * Set the value of Values at specified index.
+     *
+     * @param index the index of Values
+     * @param Values new value of Values at specified index
+     */
+    public void setValues(int index, String Values) {
+        this.Values[index] = Values;
+    }
+
     public OGIComponent(JButton button) {
         text = button.getText();
         Type = button.getClass().getTypeName();
@@ -26,6 +67,18 @@ public class OGIComponent
         text = TextField.getText();
          Type = TextField.getClass().getTypeName();
     }
+        
+    public OGIComponent(JComboBox TextField) {
+        text = TextField.getSelectedItem().toString();
+        Type = TextField.getClass().getTypeName();
+        Values = new String[TextField.getItemCount()];
+        for ( int i = 0;  i < TextField.getItemCount(); i++) {
+            setValues(i,  (String)TextField.getItemAt(i));
+        }
+    }
+        
+        
+        
     public OGIComponent() {
         
     }
