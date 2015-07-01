@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://i.fauxpen/" targetNamespace="http://i.fauxpen/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="GetControls" type="tns:GetControls" />
+  <xs:element name="GetControlsResponse" type="tns:GetControlsResponse" />
+  <xs:element name="GetForms" type="tns:GetForms" />
+  <xs:element name="GetFormsResponse" type="tns:GetFormsResponse" />
+  <xs:element name="GetString" type="tns:GetString" />
+  <xs:element name="GetStringResponse" type="tns:GetStringResponse" />
+  <xs:element name="IOException" type="tns:IOException" />
+  <xs:element name="PressButton" type="tns:PressButton" />
+  <xs:element name="PressButtonResponse" type="tns:PressButtonResponse" />
+  <xs:element name="ScreenShot" type="tns:ScreenShot" />
+  <xs:element name="ScreenShotResponse" type="tns:ScreenShotResponse" />
+  <xs:element name="onMessage" type="tns:onMessage" />
+  <xs:element name="onMessageResponse" type="tns:onMessageResponse" />
+  <xs:complexType name="GetControls">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GetControlsResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GetForms">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="GetFormsResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ScreenShot">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ScreenShotResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="IOException">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="message" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PressButton">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="PressButtonResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="onMessage">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="onMessageResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GetString">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="GetStringResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

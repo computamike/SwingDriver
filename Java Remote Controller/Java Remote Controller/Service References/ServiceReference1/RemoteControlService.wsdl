@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="http://i.fauxpen/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" name="RemoteControlService" targetNamespace="http://i.fauxpen/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://localhost:1970/RemoteService/RemoteControl?xsd=1" namespace="http://i.fauxpen/" />
+    </xsd:schema>
+  </types>
+  <message name="onMessage">
+    <part name="parameters" element="tns:onMessage" />
+  </message>
+  <message name="onMessageResponse">
+    <part name="parameters" element="tns:onMessageResponse" />
+  </message>
+  <message name="GetString">
+    <part name="parameters" element="tns:GetString" />
+  </message>
+  <message name="GetStringResponse">
+    <part name="parameters" element="tns:GetStringResponse" />
+  </message>
+  <message name="GetForms">
+    <part name="parameters" element="tns:GetForms" />
+  </message>
+  <message name="GetFormsResponse">
+    <part name="parameters" element="tns:GetFormsResponse" />
+  </message>
+  <message name="ScreenShot">
+    <part name="parameters" element="tns:ScreenShot" />
+  </message>
+  <message name="ScreenShotResponse">
+    <part name="parameters" element="tns:ScreenShotResponse" />
+  </message>
+  <message name="IOException">
+    <part name="fault" element="tns:IOException" />
+  </message>
+  <message name="GetControls">
+    <part name="parameters" element="tns:GetControls" />
+  </message>
+  <message name="GetControlsResponse">
+    <part name="parameters" element="tns:GetControlsResponse" />
+  </message>
+  <message name="PressButton">
+    <part name="parameters" element="tns:PressButton" />
+  </message>
+  <message name="PressButtonResponse">
+    <part name="parameters" element="tns:PressButtonResponse" />
+  </message>
+  <portType name="RemoteControlService">
+    <operation name="onMessage">
+      <input wsam:Action="http://i.fauxpen/RemoteControlService/onMessageRequest" message="tns:onMessage" />
+      <output wsam:Action="http://i.fauxpen/RemoteControlService/onMessageResponse" message="tns:onMessageResponse" />
+    </operation>
+    <operation name="GetString">
+      <input wsam:Action="http://i.fauxpen/RemoteControlService/GetStringRequest" message="tns:GetString" />
+      <output wsam:Action="http://i.fauxpen/RemoteControlService/GetStringResponse" message="tns:GetStringResponse" />
+    </operation>
+    <operation name="GetForms">
+      <input wsam:Action="http://i.fauxpen/RemoteControlService/GetFormsRequest" message="tns:GetForms" />
+      <output wsam:Action="http://i.fauxpen/RemoteControlService/GetFormsResponse" message="tns:GetFormsResponse" />
+    </operation>
+    <operation name="ScreenShot">
+      <input wsam:Action="http://i.fauxpen/RemoteControlService/ScreenShotRequest" message="tns:ScreenShot" />
+      <output wsam:Action="http://i.fauxpen/RemoteControlService/ScreenShotResponse" message="tns:ScreenShotResponse" />
+      <fault wsam:Action="http://i.fauxpen/RemoteControlService/ScreenShot/Fault/IOException" name="IOException" message="tns:IOException" />
+    </operation>
+    <operation name="GetControls">
+      <input wsam:Action="http://i.fauxpen/RemoteControlService/GetControlsRequest" message="tns:GetControls" />
+      <output wsam:Action="http://i.fauxpen/RemoteControlService/GetControlsResponse" message="tns:GetControlsResponse" />
+    </operation>
+    <operation name="PressButton">
+      <input wsam:Action="http://i.fauxpen/RemoteControlService/PressButtonRequest" message="tns:PressButton" />
+      <output wsam:Action="http://i.fauxpen/RemoteControlService/PressButtonResponse" message="tns:PressButtonResponse" />
+    </operation>
+  </portType>
+  <binding name="RemoteControlServicePortBinding" type="tns:RemoteControlService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="onMessage">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="GetString">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="GetForms">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="ScreenShot">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="IOException">
+        <soap:fault use="literal" name="IOException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="GetControls">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="PressButton">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="RemoteControlService">
+    <port name="RemoteControlServicePort" binding="tns:RemoteControlServicePortBinding">
+      <soap:address location="http://localhost:1970/RemoteService/RemoteControl" />
+    </port>
+  </service>
+</definitions>
