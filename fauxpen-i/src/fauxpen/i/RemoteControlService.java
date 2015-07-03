@@ -164,6 +164,34 @@ public class RemoteControlService implements IWebDriver {
         }
     return compList;
     }
+  
+    
+    @WebMethod(operationName = "GetControlByPath")
+    public OGIComponent GetControl( String NavigationPath ) throws IllegalArgumentException, IllegalAccessException {
+
+
+
+//       Component c=  FindWindow(WindowName);
+//        Field[] f =c.getClass().getDeclaredFields();
+  OGIComponent compList = new OGIComponent();
+//                
+//        for(Field field:f){
+//            if(Component.class.isAssignableFrom(field.getType()))
+//            {
+//                field.setAccessible(true);
+//                if  (field.getName().equals(Control))          
+//                {         
+//                    
+//                    final Component potentialMatch = (Component)field.get(c);
+////                OGIComponent str = (OGIComponent)potentialMatch;
+//                  compList=   ConvertComponentToOGIComponent(potentialMatch);
+//                }
+//            } 
+//
+//        }
+    return compList;
+    }
+  
     
  
     @WebMethod(operationName = "ClickButton")

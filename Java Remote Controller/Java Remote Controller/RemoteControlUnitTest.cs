@@ -4,11 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
+using System.ComponentModel.DataAnnotations;
 namespace Java_Remote_Controller
 {
     [TestFixture]
     public class RemoteControlUnitTest
     {
+ 
         [Category("Integration")]
         [Test ]
         public void canSetComboBox()
@@ -125,6 +127,10 @@ namespace Java_Remote_Controller
             rc.ClientCredentials.UserName.Password = "password";
             rc.SetControl("MainForm", "jTextArea1","THIS TEXT AREA HAS BEEN UPDATED BY A SCRIPT");
         }
+
+
+
+
 
     }
 }
