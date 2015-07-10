@@ -38,6 +38,12 @@ public class NewEmptyJUnitTest {
     public void tearDown() {
     }
 
+    
+    
+    
+    
+    
+    
     // TODO add test methods here.
     // The methods must be annotated with annotation @Test. For example:
     //
@@ -45,13 +51,22 @@ public class NewEmptyJUnitTest {
     // public void hello() {}
     
     @Test
-    public void TestHello()
+    public void TestHello() throws InterruptedException
     {
-        String path;
-        path = "MainForm\\JButton1";
-        
-        java.awt.Container c = Navigator.foobar(path);
-        assertEquals(c.getName(), "MainFrame");
-        
+//        GUIThread runnable = new GUIThread();
+//        Thread thread = new Thread(runnable);
+//        thread.start();
+//        String path;
+//        path = "MainForm\\JButton1";
+//        
+//        
+//        
+//        
+//        
+////        
+////        java.awt.Container c = Navigator.foobar(path);
+////        assertEquals(c.getName(), "MainFrame");
+//        runnable.terminate();
+//        thread.join();
     }
 }

@@ -12,6 +12,8 @@ import java.util.List;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 import fauxpen.i.MainForm;
+import java.util.ArrayList;
+
 
 /**
  *
@@ -19,41 +21,5 @@ import fauxpen.i.MainForm;
  */
 public class Navigator {
 
-    
-    private static java.awt.Container FooBar2(java.awt.Container container ,List<String> Path)
-    {
-        return container;
-    }
-    
-    public static java.awt.Container foobar(String Path)
-    {
-        Window[] w= JFrame.getWindows();
-        Frame[] f = JFrame.getFrames();
-        List<String> parts = Arrays.asList(Path.split("\\"));
-        java.awt.Container res = null ;
-                
-        if (parts.size() > 0)
-        {
-            String RequiredWindow = parts.get(0);
-            parts.remove(0);
-            for (Frame win : f) {
-                if(win.getName() == null ? RequiredWindow == null : win.getName().equals(RequiredWindow))
-                {
-                    res  = FooBar2(win,parts);
-                }
-            }
-        }
-        
-        return res;
-        // if the Path is Not empty
-        //  Get the children for the component
-        //  if I Find the child matching the name
-        //  -- Return the results of foobar(rest of path, child)
-        //  else
-        //  return Null
-        // else
-        //  return component
-        //
-    }
-    
+ 
 }

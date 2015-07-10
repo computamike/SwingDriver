@@ -8,6 +8,8 @@ package fauxpen.i;
  
 import fauxpen.i.OGIComponents.OGIComponent;
 import java.awt.Component;
+import java.awt.Container;
+import java.awt.Frame;
 import java.awt.Label;
 import java.awt.Window;
 import java.awt.image.BufferedImage;
@@ -16,12 +18,14 @@ import java.io.IOException;
 import java.lang.reflect.Field;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Arrays;
 import javax.imageio.ImageIO;
 import javax.jws.WebMethod;
 import javax.jws.WebService;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
@@ -34,7 +38,109 @@ import javax.swing.JTextField;
  */
 public class RemoteControlService implements IWebDriver {
     
+    @WebMethod(operationName = "foobar")
+    public  OGIComponent foobar(String Path) throws IllegalArgumentException, IllegalAccessException
+    {
+        Window[] w =    MainForm.getWindows();
+        //Window[] w= JFrame.getWindows();
+        //Frame[] f = JFrame.getFrames();
+        OGIComponent compList = new OGIComponent();
+        String [] strings = Path.split("\\\\");
+        List<String> parts = new ArrayList<>(Arrays.asList(strings));
+        Component result = null;
+        
+//        java.awt.Container res = null ;
+//                
+
+        if (parts.size() > 0)
+        {
+            String RequiredWindow = parts.get(0);
+            parts.remove(0);
+            Window actualWindow = FindWindow(RequiredWindow);
+            result = foobar2(actualWindow,parts);
+        }
+         compList=   ConvertComponentToOGIComponent(result);
+         return compList;
+    }
+   
+    private Component  foobar2(Container container, List<String> Path) throws IllegalArgumentException, IllegalAccessException
+    {
+        Field[] fields =container.getClass().getDeclaredFields();
+        String RequiredControl = Path.get(0);
+        Path.remove(0);
+        for(Field field:fields){
+            if (field.getName().equals(RequiredControl))
+            { 
+                field.setAccessible(true);
+                final Container potentialMatch = (Container)field.get(container);
+                if ((Path.size() >0)  && (Component.class.isAssignableFrom(Container.class)))
+                {
+                    return foobar2(potentialMatch,Path);
+                }
+                return potentialMatch;
+            }
+                         
+        }
+        return null;
+    }
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+//        
+//    private static java.awt.Container FooBar2(java.awt.Container container ,List<String> Path)
+//    {
+//        return container;
+//    }
+//    
+//    @WebMethod(operationName = "foobar")
+//    public  java.awt.Container foobar(String Path)
+//    {
+//        Window[] w= JFrame.getWindows();
+//        Frame[] f = JFrame.getFrames();
+//        
+//        String [] strings = Path.split("\\\\");
+//        List<String> parts = new ArrayList<String>(Arrays.asList(strings));
+//        
+//        
+//        java.awt.Container res = null ;
+//                
+//        if (parts.size() > 0)
+//        {
+//            String RequiredWindow = parts.get(0);
+//            parts.remove(0);
+//            for (Frame win : f) {
+//                if(win.getName() == null ? RequiredWindow == null : win.getName().equals(RequiredWindow))
+//                {
+//                    res  = FooBar2(win,parts);
+//                }
+//            }
+//        }
+//        
+//        return res;
+//        // if the Path is Not empty
+//        //  Get the children for the component
+//        //  if I Find the child matching the name
+//        //  -- Return the results of foobar(rest of path, child)
+//        //  else
+//        //  return Null
+//        // else
+//        //  return component
+//        //
+//    }
+//   
+//    
     
     @WebMethod(operationName = "GetString")
     @Override
@@ -144,25 +250,25 @@ public class RemoteControlService implements IWebDriver {
     
     @WebMethod(operationName = "GetControl")
     public OGIComponent GetControl( String WindowName, String Control ) throws IllegalArgumentException, IllegalAccessException {
-       Component c=  FindWindow(WindowName);
-        Field[] f =c.getClass().getDeclaredFields();
-        OGIComponent compList = new OGIComponent();
-                
-        for(Field field:f){
-            if(Component.class.isAssignableFrom(field.getType()))
-            {
-                field.setAccessible(true);
-                if  (field.getName().equals(Control))          
-                {         
-                    
-                    final Component potentialMatch = (Component)field.get(c);
-//                OGIComponent str = (OGIComponent)potentialMatch;
-                  compList=   ConvertComponentToOGIComponent(potentialMatch);
-                }
-            } 
-
-        }
-    return compList;
+//       Component c=  FindWindow(WindowName);
+//        Field[] f =c.getClass().getDeclaredFields();
+//        OGIComponent compList = new OGIComponent();
+//                
+//        for(Field field:f){
+//            if(Component.class.isAssignableFrom(field.getType()))
+//            {
+//                field.setAccessible(true);
+//                if  (field.getName().equals(Control))          
+//                {         
+//                    
+//                    final Component potentialMatch = (Component)field.get(c);
+//                  compList=   ConvertComponentToOGIComponent(potentialMatch);
+//                }
+//            } 
+//
+//        }
+//    return compList;
+        return null;
     }
   
     

@@ -5,6 +5,8 @@
   <xs:element name="GetControl" type="tns:GetControl" />
   <xs:element name="GetControlByLabel" type="tns:GetControlByLabel" />
   <xs:element name="GetControlByLabelResponse" type="tns:GetControlByLabelResponse" />
+  <xs:element name="GetControlByPath" nillable="true" type="tns:GetControl" />
+  <xs:element name="GetControlByPathResponse" nillable="true" type="tns:GetControlResponse" />
   <xs:element name="GetControlResponse" type="tns:GetControlResponse" />
   <xs:element name="GetControls" type="tns:GetControls" />
   <xs:element name="GetControlsList" type="tns:GetControlsList" />
@@ -24,6 +26,8 @@
   <xs:element name="ScreenShotResponse" type="tns:ScreenShotResponse" />
   <xs:element name="SetControl" type="tns:SetControl" />
   <xs:element name="SetControlResponse" type="tns:SetControlResponse" />
+  <xs:element name="foobar" type="tns:foobar" />
+  <xs:element name="foobarResponse" type="tns:foobarResponse" />
   <xs:complexType name="ClickButton">
     <xs:sequence>
       <xs:element minOccurs="0" name="arg0" type="xs:string" />
@@ -36,6 +40,49 @@
   <xs:complexType name="IllegalAccessException">
     <xs:sequence>
       <xs:element minOccurs="0" name="message" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GetFormsArray">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="GetFormsArrayResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ScreenShot">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ScreenShotResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="IOException">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="message" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GetControlByLabel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GetControlByLabelResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:ogiComponent" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ogiComponent">
+    <xs:sequence>
+      <xs:element name="checked" type="xs:boolean" />
+      <xs:element minOccurs="0" name="name" type="xs:string" />
+      <xs:element minOccurs="0" name="text" type="xs:string" />
+      <xs:element minOccurs="0" name="type" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="values" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="GetControls">
@@ -67,42 +114,20 @@
       <xs:element minOccurs="0" name="return" type="tns:ogiComponent" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="ogiComponent">
-    <xs:sequence>
-      <xs:element name="checked" type="xs:boolean" />
-      <xs:element minOccurs="0" name="name" type="xs:string" />
-      <xs:element minOccurs="0" name="text" type="xs:string" />
-      <xs:element minOccurs="0" name="type" type="xs:string" />
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="values" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="ScreenShot">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="arg0" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="ScreenShotResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="return" nillable="true" type="xs:base64Binary" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="IOException">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="message" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
   <xs:complexType name="PressButton">
     <xs:sequence />
   </xs:complexType>
   <xs:complexType name="PressButtonResponse">
     <xs:sequence />
   </xs:complexType>
-  <xs:complexType name="GetFormsArray">
-    <xs:sequence />
-  </xs:complexType>
-  <xs:complexType name="GetFormsArrayResponse">
+  <xs:complexType name="foobar">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="xs:string" />
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="foobarResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:ogiComponent" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="SetControl">
@@ -114,17 +139,6 @@
   </xs:complexType>
   <xs:complexType name="SetControlResponse">
     <xs:sequence />
-  </xs:complexType>
-  <xs:complexType name="GetControlByLabel">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="arg0" type="xs:string" />
-      <xs:element minOccurs="0" name="arg1" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="GetControlByLabelResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="return" type="tns:ogiComponent" />
-    </xs:sequence>
   </xs:complexType>
   <xs:complexType name="GetString">
     <xs:sequence />

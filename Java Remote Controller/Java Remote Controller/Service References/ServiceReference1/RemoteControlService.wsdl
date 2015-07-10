@@ -14,11 +14,47 @@
   <message name="IllegalAccessException">
     <part name="fault" element="tns:IllegalAccessException" />
   </message>
-  <message name="GetString">
-    <part name="parameters" element="tns:GetString" />
+  <message name="SetControl">
+    <part name="parameters" element="tns:SetControl" />
   </message>
-  <message name="GetStringResponse">
-    <part name="parameters" element="tns:GetStringResponse" />
+  <message name="SetControlResponse">
+    <part name="parameters" element="tns:SetControlResponse" />
+  </message>
+  <message name="GetControls">
+    <part name="parameters" element="tns:GetControls" />
+  </message>
+  <message name="GetControlsResponse">
+    <part name="parameters" element="tns:GetControlsResponse" />
+  </message>
+  <message name="GetFormsArray">
+    <part name="parameters" element="tns:GetFormsArray" />
+  </message>
+  <message name="GetFormsArrayResponse">
+    <part name="parameters" element="tns:GetFormsArrayResponse" />
+  </message>
+  <message name="ClickButton">
+    <part name="parameters" element="tns:ClickButton" />
+  </message>
+  <message name="ClickButtonResponse">
+    <part name="parameters" element="tns:ClickButtonResponse" />
+  </message>
+  <message name="PressButton">
+    <part name="parameters" element="tns:PressButton" />
+  </message>
+  <message name="PressButtonResponse">
+    <part name="parameters" element="tns:PressButtonResponse" />
+  </message>
+  <message name="GetControl">
+    <part name="parameters" element="tns:GetControl" />
+  </message>
+  <message name="GetControlResponse">
+    <part name="parameters" element="tns:GetControlResponse" />
+  </message>
+  <message name="GetControlByPath">
+    <part name="parameters" element="tns:GetControlByPath" />
+  </message>
+  <message name="GetControlByPathResponse">
+    <part name="parameters" element="tns:GetControlByPathResponse" />
   </message>
   <message name="GetForms">
     <part name="parameters" element="tns:GetForms" />
@@ -32,6 +68,18 @@
   <message name="GetControlsListResponse">
     <part name="parameters" element="tns:GetControlsListResponse" />
   </message>
+  <message name="GetString">
+    <part name="parameters" element="tns:GetString" />
+  </message>
+  <message name="GetStringResponse">
+    <part name="parameters" element="tns:GetStringResponse" />
+  </message>
+  <message name="foobar">
+    <part name="parameters" element="tns:foobar" />
+  </message>
+  <message name="foobarResponse">
+    <part name="parameters" element="tns:foobarResponse" />
+  </message>
   <message name="ScreenShot">
     <part name="parameters" element="tns:ScreenShot" />
   </message>
@@ -41,51 +89,43 @@
   <message name="IOException">
     <part name="fault" element="tns:IOException" />
   </message>
-  <message name="GetControl">
-    <part name="parameters" element="tns:GetControl" />
-  </message>
-  <message name="GetControlResponse">
-    <part name="parameters" element="tns:GetControlResponse" />
-  </message>
-  <message name="ClickButton">
-    <part name="parameters" element="tns:ClickButton" />
-  </message>
-  <message name="ClickButtonResponse">
-    <part name="parameters" element="tns:ClickButtonResponse" />
-  </message>
-  <message name="SetControl">
-    <part name="parameters" element="tns:SetControl" />
-  </message>
-  <message name="SetControlResponse">
-    <part name="parameters" element="tns:SetControlResponse" />
-  </message>
-  <message name="PressButton">
-    <part name="parameters" element="tns:PressButton" />
-  </message>
-  <message name="PressButtonResponse">
-    <part name="parameters" element="tns:PressButtonResponse" />
-  </message>
-  <message name="GetFormsArray">
-    <part name="parameters" element="tns:GetFormsArray" />
-  </message>
-  <message name="GetFormsArrayResponse">
-    <part name="parameters" element="tns:GetFormsArrayResponse" />
-  </message>
-  <message name="GetControls">
-    <part name="parameters" element="tns:GetControls" />
-  </message>
-  <message name="GetControlsResponse">
-    <part name="parameters" element="tns:GetControlsResponse" />
-  </message>
   <portType name="RemoteControlService">
     <operation name="GetControlByLabel">
       <input wsam:Action="http://i.fauxpen/RemoteControlService/GetControlByLabelRequest" message="tns:GetControlByLabel" />
       <output wsam:Action="http://i.fauxpen/RemoteControlService/GetControlByLabelResponse" message="tns:GetControlByLabelResponse" />
       <fault wsam:Action="http://i.fauxpen/RemoteControlService/GetControlByLabel/Fault/IllegalAccessException" name="IllegalAccessException" message="tns:IllegalAccessException" />
     </operation>
-    <operation name="GetString">
-      <input wsam:Action="http://i.fauxpen/RemoteControlService/GetStringRequest" message="tns:GetString" />
-      <output wsam:Action="http://i.fauxpen/RemoteControlService/GetStringResponse" message="tns:GetStringResponse" />
+    <operation name="SetControl">
+      <input wsam:Action="http://i.fauxpen/RemoteControlService/SetControlRequest" message="tns:SetControl" />
+      <output wsam:Action="http://i.fauxpen/RemoteControlService/SetControlResponse" message="tns:SetControlResponse" />
+      <fault wsam:Action="http://i.fauxpen/RemoteControlService/SetControl/Fault/IllegalAccessException" name="IllegalAccessException" message="tns:IllegalAccessException" />
+    </operation>
+    <operation name="GetControls">
+      <input wsam:Action="http://i.fauxpen/RemoteControlService/GetControlsRequest" message="tns:GetControls" />
+      <output wsam:Action="http://i.fauxpen/RemoteControlService/GetControlsResponse" message="tns:GetControlsResponse" />
+    </operation>
+    <operation name="GetFormsArray">
+      <input wsam:Action="http://i.fauxpen/RemoteControlService/GetFormsArrayRequest" message="tns:GetFormsArray" />
+      <output wsam:Action="http://i.fauxpen/RemoteControlService/GetFormsArrayResponse" message="tns:GetFormsArrayResponse" />
+    </operation>
+    <operation name="ClickButton">
+      <input wsam:Action="http://i.fauxpen/RemoteControlService/ClickButtonRequest" message="tns:ClickButton" />
+      <output wsam:Action="http://i.fauxpen/RemoteControlService/ClickButtonResponse" message="tns:ClickButtonResponse" />
+      <fault wsam:Action="http://i.fauxpen/RemoteControlService/ClickButton/Fault/IllegalAccessException" name="IllegalAccessException" message="tns:IllegalAccessException" />
+    </operation>
+    <operation name="PressButton">
+      <input wsam:Action="http://i.fauxpen/RemoteControlService/PressButtonRequest" message="tns:PressButton" />
+      <output wsam:Action="http://i.fauxpen/RemoteControlService/PressButtonResponse" message="tns:PressButtonResponse" />
+    </operation>
+    <operation name="GetControl">
+      <input wsam:Action="http://i.fauxpen/RemoteControlService/GetControlRequest" message="tns:GetControl" />
+      <output wsam:Action="http://i.fauxpen/RemoteControlService/GetControlResponse" message="tns:GetControlResponse" />
+      <fault wsam:Action="http://i.fauxpen/RemoteControlService/GetControl/Fault/IllegalAccessException" name="IllegalAccessException" message="tns:IllegalAccessException" />
+    </operation>
+    <operation name="GetControlByPath">
+      <input wsam:Action="http://i.fauxpen/RemoteControlService/GetControlByPathRequest" message="tns:GetControlByPath" />
+      <output wsam:Action="http://i.fauxpen/RemoteControlService/GetControlByPathResponse" message="tns:GetControlByPathResponse" />
+      <fault wsam:Action="http://i.fauxpen/RemoteControlService/GetControlByPath/Fault/IllegalAccessException" name="IllegalAccessException" message="tns:IllegalAccessException" />
     </operation>
     <operation name="GetForms">
       <input wsam:Action="http://i.fauxpen/RemoteControlService/GetFormsRequest" message="tns:GetForms" />
@@ -96,42 +136,120 @@
       <output wsam:Action="http://i.fauxpen/RemoteControlService/GetControlsListResponse" message="tns:GetControlsListResponse" />
       <fault wsam:Action="http://i.fauxpen/RemoteControlService/GetControlsList/Fault/IllegalAccessException" name="IllegalAccessException" message="tns:IllegalAccessException" />
     </operation>
+    <operation name="GetString">
+      <input wsam:Action="http://i.fauxpen/RemoteControlService/GetStringRequest" message="tns:GetString" />
+      <output wsam:Action="http://i.fauxpen/RemoteControlService/GetStringResponse" message="tns:GetStringResponse" />
+    </operation>
+    <operation name="foobar">
+      <input wsam:Action="http://i.fauxpen/RemoteControlService/foobarRequest" message="tns:foobar" />
+      <output wsam:Action="http://i.fauxpen/RemoteControlService/foobarResponse" message="tns:foobarResponse" />
+      <fault wsam:Action="http://i.fauxpen/RemoteControlService/foobar/Fault/IllegalAccessException" name="IllegalAccessException" message="tns:IllegalAccessException" />
+    </operation>
     <operation name="ScreenShot">
       <input wsam:Action="http://i.fauxpen/RemoteControlService/ScreenShotRequest" message="tns:ScreenShot" />
       <output wsam:Action="http://i.fauxpen/RemoteControlService/ScreenShotResponse" message="tns:ScreenShotResponse" />
       <fault wsam:Action="http://i.fauxpen/RemoteControlService/ScreenShot/Fault/IOException" name="IOException" message="tns:IOException" />
     </operation>
-    <operation name="GetControl">
-      <input wsam:Action="http://i.fauxpen/RemoteControlService/GetControlRequest" message="tns:GetControl" />
-      <output wsam:Action="http://i.fauxpen/RemoteControlService/GetControlResponse" message="tns:GetControlResponse" />
-      <fault wsam:Action="http://i.fauxpen/RemoteControlService/GetControl/Fault/IllegalAccessException" name="IllegalAccessException" message="tns:IllegalAccessException" />
-    </operation>
-    <operation name="ClickButton">
-      <input wsam:Action="http://i.fauxpen/RemoteControlService/ClickButtonRequest" message="tns:ClickButton" />
-      <output wsam:Action="http://i.fauxpen/RemoteControlService/ClickButtonResponse" message="tns:ClickButtonResponse" />
-      <fault wsam:Action="http://i.fauxpen/RemoteControlService/ClickButton/Fault/IllegalAccessException" name="IllegalAccessException" message="tns:IllegalAccessException" />
-    </operation>
-    <operation name="SetControl">
-      <input wsam:Action="http://i.fauxpen/RemoteControlService/SetControlRequest" message="tns:SetControl" />
-      <output wsam:Action="http://i.fauxpen/RemoteControlService/SetControlResponse" message="tns:SetControlResponse" />
-      <fault wsam:Action="http://i.fauxpen/RemoteControlService/SetControl/Fault/IllegalAccessException" name="IllegalAccessException" message="tns:IllegalAccessException" />
-    </operation>
-    <operation name="PressButton">
-      <input wsam:Action="http://i.fauxpen/RemoteControlService/PressButtonRequest" message="tns:PressButton" />
-      <output wsam:Action="http://i.fauxpen/RemoteControlService/PressButtonResponse" message="tns:PressButtonResponse" />
-    </operation>
-    <operation name="GetFormsArray">
-      <input wsam:Action="http://i.fauxpen/RemoteControlService/GetFormsArrayRequest" message="tns:GetFormsArray" />
-      <output wsam:Action="http://i.fauxpen/RemoteControlService/GetFormsArrayResponse" message="tns:GetFormsArrayResponse" />
-    </operation>
-    <operation name="GetControls">
-      <input wsam:Action="http://i.fauxpen/RemoteControlService/GetControlsRequest" message="tns:GetControls" />
-      <output wsam:Action="http://i.fauxpen/RemoteControlService/GetControlsResponse" message="tns:GetControlsResponse" />
-    </operation>
   </portType>
   <binding name="RemoteControlServicePortBinding" type="tns:RemoteControlService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <operation name="GetControlByLabel">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="IllegalAccessException">
+        <soap:fault use="literal" name="IllegalAccessException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="SetControl">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="IllegalAccessException">
+        <soap:fault use="literal" name="IllegalAccessException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="GetControls">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="GetFormsArray">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="ClickButton">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="IllegalAccessException">
+        <soap:fault use="literal" name="IllegalAccessException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="PressButton">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="GetControl">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="IllegalAccessException">
+        <soap:fault use="literal" name="IllegalAccessException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="GetControlByPath">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="IllegalAccessException">
+        <soap:fault use="literal" name="IllegalAccessException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="GetForms">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="GetControlsList">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -152,16 +270,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="GetForms">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="GetControlsList">
+    <operation name="foobar">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -184,69 +293,6 @@
       <fault name="IOException">
         <soap:fault use="literal" name="IOException" namespace="" />
       </fault>
-    </operation>
-    <operation name="GetControl">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-      <fault name="IllegalAccessException">
-        <soap:fault use="literal" name="IllegalAccessException" namespace="" />
-      </fault>
-    </operation>
-    <operation name="ClickButton">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-      <fault name="IllegalAccessException">
-        <soap:fault use="literal" name="IllegalAccessException" namespace="" />
-      </fault>
-    </operation>
-    <operation name="SetControl">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-      <fault name="IllegalAccessException">
-        <soap:fault use="literal" name="IllegalAccessException" namespace="" />
-      </fault>
-    </operation>
-    <operation name="PressButton">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="GetFormsArray">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="GetControls">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
     </operation>
   </binding>
   <service name="RemoteControlService">

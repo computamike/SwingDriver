@@ -10,7 +10,7 @@ namespace Java_Remote_Controller
     [TestFixture]
     public class RemoteControlUnitTest
     {
- 
+  
         [Category("Integration")]
         [Test ]
         public void canSetComboBox()
@@ -19,18 +19,30 @@ namespace Java_Remote_Controller
             rc.ClientCredentials.UserName.UserName = "admin";
             rc.ClientCredentials.UserName.Password = "password";
 
-            var s = rc.GetControl("MainForm", "jComboBox1");
+            var s = rc.foobar(@"MainForm\jComboBox1");
             rc.SetControl("MainForm", "jComboBox1", "Oranges");
-            var s2 = rc.GetControl("MainForm", "jComboBox1");
+            var s2 = rc.foobar(@"MainForm\jComboBox1");
 
             Assert.AreNotEqual(s.text, s2.text);
             Assert.AreEqual(s2.text,"Oranges");
-            rc.SetControl("MainForm", "jComboBox1", s.text);
+            rc.SetControl(@"MainForm", "jComboBox1", s.text);
 
 
         }
         [Category("Integration")]
-        
+
+
+        [Test]
+        public void TestFoobar()
+        {
+            ServiceReference1.RemoteControlServiceClient rc = new ServiceReference1.RemoteControlServiceClient();
+            rc.ClientCredentials.UserName.UserName = "admin";
+            rc.ClientCredentials.UserName.Password = "password";
+
+            var x = rc.foobar("MainForm\\jButton1");
+
+        }
+
         [Test]
         public void canGetAllValuesForAComboBox()
         {
@@ -38,7 +50,7 @@ namespace Java_Remote_Controller
             rc.ClientCredentials.UserName.UserName = "admin";
             rc.ClientCredentials.UserName.Password = "password";
 
-            var s = rc.GetControl("MainForm", "jComboBox1");
+            var s = rc.foobar(@"MainForm\jComboBox1");
             Assert.AreNotEqual(s.values, 0);
             Console.WriteLine(s.values );
           
@@ -53,7 +65,7 @@ namespace Java_Remote_Controller
             rc.ClientCredentials.UserName.UserName = "admin";
             rc.ClientCredentials.UserName.Password = "password";
 
-            var s = rc.GetControl("MainForm", "jCheckBox1");
+            var s = rc.foobar(@"MainForm\jCheckBox1");
             Console.WriteLine("CHECK BOX = " + s.@checked.ToString());
             
         }
@@ -65,7 +77,7 @@ namespace Java_Remote_Controller
             rc.ClientCredentials.UserName.UserName = "admin";
             rc.ClientCredentials.UserName.Password = "password";
 
-           Boolean IsChecked =  !rc.GetControl("MainForm", "jCheckBox1").@checked;
+           Boolean IsChecked =  !rc.foobar(@"MainForm\jCheckBox1").@checked;
            rc.SetControl("MainForm", "jCheckBox1", IsChecked.ToString());
         }
 
@@ -76,7 +88,7 @@ namespace Java_Remote_Controller
             rc.ClientCredentials.UserName.UserName = "admin";
             rc.ClientCredentials.UserName.Password = "password";
 
-           var IsChecked = rc.GetControl("MainForm", "jTextField1").text;
+           var IsChecked = rc.foobar(@"MainForm\jTextField1").text;
            Console.WriteLine(IsChecked);
         }
         
@@ -96,7 +108,7 @@ namespace Java_Remote_Controller
             rc.ClientCredentials.UserName.UserName = "admin";
             rc.ClientCredentials.UserName.Password = "password";
 
-            var IsChecked = rc.GetControl("MainForm", "jButton1");
+            var IsChecked = rc.foobar(@"MainForm\jButton1");
             Console.WriteLine(IsChecked.text);
         }
 
@@ -116,7 +128,7 @@ namespace Java_Remote_Controller
             rc.ClientCredentials.UserName.UserName = "admin";
             rc.ClientCredentials.UserName.Password = "password";
 
-            var IsChecked = rc.GetControl("MainForm", "jTextArea1").text;
+            var IsChecked = rc.foobar(@"MainForm\jTextArea1").text;
             Console.WriteLine(IsChecked);
         }
         [Test]
