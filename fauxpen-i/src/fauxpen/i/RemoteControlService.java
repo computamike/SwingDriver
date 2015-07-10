@@ -43,6 +43,11 @@ public class RemoteControlService implements IWebDriver {
         return "Hello World";
     }
     
+    
+    
+    
+    
+    
     @WebMethod(operationName = "GetForms") 
     @Override
     public String GetForms()
@@ -218,6 +223,12 @@ public class RemoteControlService implements IWebDriver {
      }
     
     
+    @WebMethod(operationName = "GetControlByPath")
+    public void GetControlByPath(String Path)
+    {
+        
+    }
+            
     @WebMethod(operationName = "GetControlByLabel")
     public OGIComponent GetControlByLabel( String WindowName, String Caption ) throws IllegalArgumentException, IllegalAccessException {
        Component c=  FindWindow(WindowName);

@@ -3,9 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package fauxpen.i;
 
-import fauxpen.i.Navigator;
-import java.awt.Window;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -15,7 +14,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author Mike
+ * @author mhingley
  */
 public class NewEmptyJUnitTest {
     
@@ -43,15 +42,4 @@ public class NewEmptyJUnitTest {
     //
     // @Test
     // public void hello() {}
-    
-    @Test
-    public void TestHello()
-    {
-        String path;
-        path = "MainForm\\JButton1";
-        
-        java.awt.Container c = Navigator.foobar(path);
-        assertEquals(c.getName(), "MainFrame");
-        
-    }
 }

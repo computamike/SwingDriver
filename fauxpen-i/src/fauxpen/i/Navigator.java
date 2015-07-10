@@ -25,7 +25,7 @@ public class Navigator {
         return container;
     }
     
-    public static java.awt.Container foobar(String Path)
+    public static java.awt.Container foobar(JFrame TopLevelFrame,String Path)
     {
         Window[] w= JFrame.getWindows();
         Frame[] f = JFrame.getFrames();
