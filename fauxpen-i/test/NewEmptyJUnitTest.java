@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-import fauxpen.i.Navigator;
+//import fauxpen.i.Navigator;
 import java.awt.Window;
 import org.junit.After;
 import org.junit.AfterClass;

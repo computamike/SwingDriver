@@ -8,10 +8,18 @@ package fauxpen.i;
 import com.sun.net.httpserver.HttpContext;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpServer;
+import java.awt.AWTEvent;
+import java.awt.Component;
+import java.awt.Toolkit;
+import java.awt.Window;
+import java.awt.event.AWTEventListener;
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadPoolExecutor;
+import javax.swing.JComponent;
+import javax.swing.JFrame;
+import javax.swing.SwingUtilities;
 import javax.xml.ws.Endpoint;
 
 /**
@@ -27,12 +35,46 @@ import javax.xml.ws.Endpoint;
  */
 public class RemoteService {
 
+    static long eventMask =   AWTEvent.MOUSE_EVENT_MASK + AWTEvent.ITEM_EVENT_MASK;
+  
+  //static long eventMask = AWTEvent.MOUSE_MOTION_EVENT_MASK + AWTEvent.MOUSE_EVENT_MASK + AWTEvent.ITEM_EVENT_MASK;
+  
+    
     private static RemoteService instance = null;
 
     protected RemoteService() {
         // Exists only to defeat instantiation.
     }
 
+    static Inspector ins = null;
+    static
+    {
+        //Toolkit.getDefaultToolkit().addAWTEventListener((AWTEvent awte) -> 
+        //{
+         //   JFrame topFrame =  null;
+         //   topFrame = (JFrame) SwingUtilities.getWindowAncestor((Component) awte.getSource());
+                
+            
+            
+            
+            
+            
+            //if (ins == null)
+            //{
+                //ins = new Inspector();
+            //}
+            //ins.setVisible(true);
+            //if (topFrame != null && !topFrame.getClass().isAssignableFrom(Inspector.class))
+            //{
+               //ins.ShowAWTEvent(awte);  
+            //}
+            
+            //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //}, eventMask);
+    }
+    
+    public void mouseEventListener()
+    {}
     public static RemoteService getInstance() throws IOException {
         if (instance == null) {
             instance = new RemoteService();
@@ -60,7 +102,7 @@ public class RemoteService {
     }
 
     private static void StartRemoteService() throws IOException {
-            server = HttpServer.create(new InetSocketAddress(1970), 5);
+        server = HttpServer.create(new InetSocketAddress(1970), 5);
         endpoint = Endpoint.create(new RemoteControlService());
         //server.setExecutor(executor);
         server.start();
@@ -69,7 +111,7 @@ public class RemoteService {
         context.setAuthenticator(new TestBasicAuthenticator("test"));
         endpoint.publish(context);
  
-         
+        System.out.println("Starting Services " + endpoint.toString());
         
     }
 

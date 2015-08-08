@@ -1,4 +1,4 @@
-/*
+ /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
  *
  * @author Mike
  */
-public class MainForm extends OGIFrame {
+public class MainForm extends javax.swing.JFrame {
 
     /**
      * Creates new form MainForm
@@ -157,7 +157,8 @@ public class MainForm extends OGIFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
 
-        new Form2().setVisible(rootPaneCheckingEnabled);
+        
+        //new Form2().setVisible(rootPaneCheckingEnabled);
            
          
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -195,6 +196,9 @@ public class MainForm extends OGIFrame {
                 new MainForm().setVisible(true);
             }
         });
+   
+        new NewClass();
+    
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -3,11 +3,18 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Projects/Github/Java/SwingDriver/fauxpen-i/test/NewEmptyJUnitTest.java</file>
+            <file>file:/C:/Projects/Github/Java/SwingDriver/fauxpen-i/src/fauxpen/i/IWebDriver.java</file>
+            <file>file:/C:/Projects/Github/Java/SwingDriver/fauxpen-i/src/fauxpen/i/Inspector.java</file>
+            <file>file:/C:/Projects/Github/Java/SwingDriver/fauxpen-i/src/fauxpen/i/FormListener.java</file>
             <file>file:/C:/Projects/Github/Java/SwingDriver/fauxpen-i/src/fauxpen/i/Navigator.java</file>
-            <file>file:/C:/Projects/Github/Java/SwingDriver/fauxpen-i/src/fauxpen/i/RemoteControlService.java</file>
-            <file>file:/C:/Projects/Github/Java/SwingDriver/fauxpen-i/src/fauxpen/i/TestBasicAuthenticator.java</file>
+            <file>file:/C:/Projects/Github/Java/SwingDriver/fauxpen-i/src/fauxpen/i/NewClass.java</file>
+            <file>file:/C:/Projects/Github/Java/SwingDriver/fauxpen-i/src/fauxpen/i/OGIComponents/OGIFrame.java</file>
+            <file>file:/C:/Projects/Github/Java/SwingDriver/fauxpen-i/src/fauxpen/i/RemoteService.java</file>
             <file>file:/C:/Projects/Github/Java/SwingDriver/fauxpen-i/src/fauxpen/i/MainForm.java</file>
+            <file>file:/C:/Projects/Github/Java/SwingDriver/fauxpen-i/src/fauxpen/i/RemoteControlService.java</file>
+            <file>file:/C:/Projects/Github/Java/SwingDriver/fauxpen-i/src/fauxpen/i/Form2.java</file>
+            <file>file:/C:/Projects/Github/Java/SwingDriver/fauxpen-i/src/fauxpen/i/TestBasicAuthenticator.java</file>
+            <file>file:/C:/Projects/Github/Java/SwingDriver/fauxpen-i/test/NewEmptyJUnitTest.java</file>
         </group>
     </open-files>
 </project-private>

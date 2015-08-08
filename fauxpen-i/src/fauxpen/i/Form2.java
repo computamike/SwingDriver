@@ -11,6 +11,11 @@ package fauxpen.i;
  */
 public class Form2 extends javax.swing.JFrame {
 
+    
+
+    
+    
+    
     /**
      * Creates new form Form2
      */
