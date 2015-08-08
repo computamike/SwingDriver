@@ -18,6 +18,8 @@ import java.lang.reflect.Field;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.jws.WebMethod;
 import javax.jws.WebService;
@@ -39,8 +41,142 @@ import javax.swing.JTextField;
  * @author Mike
  */
 public class RemoteControlService {
+    
+    //<editor-fold desc="Utility Functions">
+    /**
+     * Utility function to find a control
+     * @param Path
+     * @return
+     * @throws IllegalArgumentException
+     * @throws IllegalAccessException 
+     */
+    private Component GetActualControl(String Path) throws IllegalArgumentException, IllegalAccessException {
+        Window[] w = Window.getWindows();//  RegisteredWindow.getWindows();
+        String[] strings = Path.split("\\\\");
+        List<String> parts = new ArrayList<>(Arrays.asList(strings));
+        Component result = null;
+        if (parts.size() > 0) {
+            String RequiredWindow = parts.get(0);
+            parts.remove(0);
+            Window actualWindow = FindWindow(RequiredWindow);
+            result =actualWindow;
+            if (parts.size()>0)
+            {
+                result = foobar2(actualWindow, parts);
+            }
+            
+        }
+        return result;
+    }
+    
+
+    
+    /**
+     * This method should be renamed?  
+     * It scans a container (recursively) 
+     * passing what is lect of the search path, and the container the search
+     * into each iteration
+     * @param container
+     * @param Path
+     * @return
+     * @throws IllegalArgumentException
+     * @throws IllegalAccessException 
+     */
+    private Component foobar2(Container container, List<String> Path) throws IllegalArgumentException, IllegalAccessException {
+        Field[] fields = container.getClass().getDeclaredFields();
+        String RequiredControl = Path.get(0);
+        Path.remove(0);
+        for (Field field : fields) {
+            if (field.getName().equals(RequiredControl)) {
+                field.setAccessible(true);
+                final Container potentialMatch = (Container) field.get(container);
+                if ((Path.size() > 0) && (Component.class.isAssignableFrom(Container.class))) {
+                    return foobar2(potentialMatch, Path);
+                }
+                return potentialMatch;
+            }
+
+        }
+        return null;
+    }
 
     /**
+     * Method that converts a Component to an OGIComponent.  Standard swing 
+     * components cannot be sent across the wire to services, therefore they 
+     * are 'copied' to an OGIComponent.
+     * @param C
+     * @return 
+     */
+    private OGIComponent ConvertComponentToOGIComponent(Component C) {
+        OGIComponent convertedType = new OGIComponent();
+
+        if (C.getClass().isAssignableFrom(JButton.class)) {
+            return new OGIComponent((JButton) C);
+        }
+
+        if (C.getClass().isAssignableFrom(JTextField.class)) {
+            return new OGIComponent((JTextField) C);
+        }
+
+        if (C.getClass().isAssignableFrom(JComboBox.class)) {
+            return new OGIComponent((JComboBox) C);
+        }
+
+        if (C.getClass().isAssignableFrom(JCheckBox.class)) {
+            return new OGIComponent((JCheckBox) C);
+        }
+
+        if (C.getClass().isAssignableFrom(JTextArea.class)) {
+            return new OGIComponent((JTextArea) C);
+        }
+
+        return convertedType;
+    }
+
+
+        // - Maybe consider moving these to a utility class?
+    private static void SetControlValue(JTextField TextField, String Value) {
+        TextField.setText(Value);
+    }
+
+    private static void SetControlValue(JCheckBox TextField, String Value) {
+        TextField.setSelected(Boolean.parseBoolean(Value));
+    }
+
+    private static void SetControlValue(JTextArea TextField, String Value) {
+        TextField.setText(Value);
+    }
+
+    private static void SetControlValue(JComboBox comboBox, String Value) {
+        comboBox.setSelectedItem(Value);
+    }
+
+    /**
+     * Finds a window based on the name specified.
+     * @param WindowName
+     * @return 
+     */
+    private Window FindWindow(String WindowName) {
+        Window[] windows = Window.getWindows();//RegisteredWindow.getWindows();
+        for (int i = 0; i < windows.length; i++) {
+            Window window = windows[i];
+            if (window.getName().equals(WindowName)) {
+                return window;
+            }
+        }
+        return null;
+    }
+    
+    
+    
+    
+    
+    
+    
+    //</editor-fold>
+    
+    //<editor-fold desc="Web Methods">
+      /**
      *
      * @param Path the address of the control to query - typically in the form
      * \formname\container\container\control
@@ -65,26 +201,113 @@ public class RemoteControlService {
         return compList;
     }
 
-    private Component foobar2(Container container, List<String> Path) throws IllegalArgumentException, IllegalAccessException {
-        Field[] fields = container.getClass().getDeclaredFields();
-        String RequiredControl = Path.get(0);
-        Path.remove(0);
-        for (Field field : fields) {
-            if (field.getName().equals(RequiredControl)) {
-                field.setAccessible(true);
-                final Container potentialMatch = (Container) field.get(container);
-                if ((Path.size() > 0) && (Component.class.isAssignableFrom(Container.class))) {
-                    return foobar2(potentialMatch, Path);
-                }
-                return potentialMatch;
-            }
+    @WebMethod(operationName = "ClickControl")
+    public void ClickControl(String Path) throws IllegalArgumentException, IllegalAccessException {
+        Component Control = GetActualControl(Path);
 
+        if (Control.getClass().isAssignableFrom(JCheckBox.class)) 
+        {
+            ((JCheckBox) Control).doClick();
         }
-        return null;
+        if (Control.getClass().isAssignableFrom(JButton.class)) 
+        {
+            ((JButton) Control).doClick();
+        }        
     }
 
     /**
-     *
+     * Takes a screen shot / image of the named window / form.
+     * @param WindowName
+     * @return
+     * @throws IOException
+     */
+    @WebMethod(operationName = "ScreenShot") 
+    public   byte[] getScreenShot(String WindowName) throws  AWTomationException, IOException {
+        Component component = null;
+        try {
+            component = GetActualControl(WindowName);
+            if (component !=null)
+            {
+                byte[] imageInByte =null;
+                BufferedImage image = new BufferedImage(component.getWidth(),component.getHeight(),BufferedImage.TYPE_INT_RGB);
+                // call the Component's paint method, using
+                // the Graphics object of the image.
+                component.paint( image.getGraphics() ); // alternately use .printAll(..)
+                ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                ImageIO.write( image, "png", baos );
+                baos.flush();
+                imageInByte = baos.toByteArray();
+                baos.close();
+                return imageInByte;
+
+            }
+        } catch (IllegalArgumentException ex) {
+            Logger.getLogger(RemoteControlService.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            Logger.getLogger(RemoteControlService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         throw new AWTomationException("Cannot find Element");
+    }
+    
+    
+    
+    
+    
+        @WebMethod(operationName = "SetControl")
+    public void SetControl(String WindowName, String Control, String value) throws IllegalArgumentException, IllegalAccessException {
+        Component c = FindWindow(WindowName);
+        Field[] f = c.getClass().getDeclaredFields();
+        OGIComponent compList = new OGIComponent();
+
+        for (Field field : f) {
+            if (Component.class.isAssignableFrom(field.getType())) {
+                field.setAccessible(true);
+                if (field.getName().equals(Control)) {
+                    final Component potentialMatch = (Component) field.get(c);
+
+                    if (potentialMatch.getClass().isAssignableFrom(JComboBox.class)) {
+                        SetControlValue((JComboBox) potentialMatch, value);
+                    }
+
+                    if (potentialMatch.getClass().isAssignableFrom(JTextField.class)) {
+                        SetControlValue((JTextField) potentialMatch, value);
+                    }
+
+                    if (potentialMatch.getClass().isAssignableFrom(JCheckBox.class)) {
+                        SetControlValue((JCheckBox) potentialMatch, value);
+                    }
+
+                    if (potentialMatch.getClass().isAssignableFrom(JTextArea.class)) {
+                        SetControlValue((JTextArea) potentialMatch, value);
+                    }
+
+                }
+            }
+        }
+
+//        // Check the type of control
+//        // Conditionally work with the value passed in 0
+//        //
+//        // For Text fields - set the value
+//        //
+//        // For Radio Buttons - click on the option with that label
+//        //
+//        // for check boxes - click on the option with that label.
+//        //
+//        // For Drop down lists - select the option with that label.
+//        
+//    // Do the update here
+//         
+    }
+    
+    
+    
+    
+    //</editor-fold>
+    
+    /**
+     * A simple web method that returns a "Hello World"- can be used to test 
+     * that the service is indeed running.
      * @return
      */
     @WebMethod(operationName = "GetString")
@@ -128,58 +351,7 @@ public class RemoteControlService {
 //        }
 //    return compList;
 //}
-    private OGIComponent ConvertComponentToOGIComponent(Component C) {
-        OGIComponent convertedType = new OGIComponent();
 
-        if (C.getClass().isAssignableFrom(JButton.class)) {
-            return new OGIComponent((JButton) C);
-        }
-
-        if (C.getClass().isAssignableFrom(JTextField.class)) {
-            return new OGIComponent((JTextField) C);
-        }
-
-        if (C.getClass().isAssignableFrom(JComboBox.class)) {
-            return new OGIComponent((JComboBox) C);
-        }
-
-        if (C.getClass().isAssignableFrom(JCheckBox.class)) {
-            return new OGIComponent((JCheckBox) C);
-        }
-
-        if (C.getClass().isAssignableFrom(JTextArea.class)) {
-            return new OGIComponent((JTextArea) C);
-        }
-
-        return convertedType;
-    }
-
-//    /**
-//     * Takes a screen shot / image of the named window / form.
-//     * @param WindowName
-//     * @return
-//     * @throws IOException
-//     */
-//    @WebMethod(operationName = "ScreenShot") 
-//    public   byte[] getScreenShot(String WindowName) throws IOException {
-//        Component component = FindWindow( WindowName);
-//        BufferedImage image = new BufferedImage(component.getWidth(),component.getHeight(),BufferedImage.TYPE_INT_RGB);
-//        // call the Component's paint method, using
-//        // the Graphics object of the image.
-//        component.paint( image.getGraphics() ); // alternately use .printAll(..)
-//        
-//        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-//	
-//        ImageIO.write( image, "png", baos );
-//	baos.flush();
-//	byte[] imageInByte = baos.toByteArray();
-//	baos.close();
-// 
-// 
-//                
-//        
-//        return imageInByte;
-//    }
 //    @WebMethod(operationName = "GetControl")
 //    public OGIComponent GetControl( String WindowName, String Control ) throws IllegalArgumentException, IllegalAccessException {
 //       Component c=  FindWindow(WindowName);
@@ -272,83 +444,14 @@ public class RemoteControlService {
 //    return compList;
 //    }
 //    
-    // - Maybe consider moving these to a utility class?
-    private static void SetControlValue(JTextField TextField, String Value) {
-        TextField.setText(Value);
-    }
 
-    private static void SetControlValue(JCheckBox TextField, String Value) {
-        TextField.setSelected(Boolean.parseBoolean(Value));
-    }
 
-    private static void SetControlValue(JTextArea TextField, String Value) {
-        TextField.setText(Value);
-    }
 
-    private static void SetControlValue(JComboBox comboBox, String Value) {
-        comboBox.setSelectedItem(Value);
-    }
-
-    @WebMethod(operationName = "SetControl")
-    public void SetControl(String WindowName, String Control, String value) throws IllegalArgumentException, IllegalAccessException {
-        Component c = FindWindow(WindowName);
-        Field[] f = c.getClass().getDeclaredFields();
-        OGIComponent compList = new OGIComponent();
-
-        for (Field field : f) {
-            if (Component.class.isAssignableFrom(field.getType())) {
-                field.setAccessible(true);
-                if (field.getName().equals(Control)) {
-                    final Component potentialMatch = (Component) field.get(c);
-
-                    if (potentialMatch.getClass().isAssignableFrom(JComboBox.class)) {
-                        SetControlValue((JComboBox) potentialMatch, value);
-                    }
-
-                    if (potentialMatch.getClass().isAssignableFrom(JTextField.class)) {
-                        SetControlValue((JTextField) potentialMatch, value);
-                    }
-
-                    if (potentialMatch.getClass().isAssignableFrom(JCheckBox.class)) {
-                        SetControlValue((JCheckBox) potentialMatch, value);
-                    }
-
-                    if (potentialMatch.getClass().isAssignableFrom(JTextArea.class)) {
-                        SetControlValue((JTextArea) potentialMatch, value);
-                    }
-
-                }
-            }
-        }
-
-//        // Check the type of control
-//        // Conditionally work with the value passed in 0
-//        //
-//        // For Text fields - set the value
-//        //
-//        // For Radio Buttons - click on the option with that label
-//        //
-//        // for check boxes - click on the option with that label.
-//        //
-//        // For Drop down lists - select the option with that label.
-//        
-//    // Do the update here
-//         
-    }
 //   
 //    
 //    
 
-    private Window FindWindow(String WindowName) {
-        Window[] windows = Window.getWindows();//RegisteredWindow.getWindows();
-        for (int i = 0; i < windows.length; i++) {
-            Window window = windows[i];
-            if (window.getName().equals(WindowName)) {
-                return window;
-            }
-        }
-        return null;
-    }
+
 
 //    private static Component FindControl(Window Window, String ControlID) throws IllegalArgumentException, IllegalAccessException
 //    {

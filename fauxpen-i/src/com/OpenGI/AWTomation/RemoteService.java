@@ -8,7 +8,6 @@ package com.OpenGI.AWTomation;
 import com.sun.net.httpserver.HttpContext;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpServer;
-import fauxpen.i.Inspector;
 import java.awt.AWTEvent;
 import java.awt.Component;
 import java.awt.Toolkit;
@@ -35,12 +34,9 @@ import javax.xml.ws.Endpoint;
  * @author Mike Hingley
  */
 public class RemoteService {
-
     static long eventMask =   AWTEvent.MOUSE_EVENT_MASK + AWTEvent.ITEM_EVENT_MASK;
-  
-  //static long eventMask = AWTEvent.MOUSE_MOTION_EVENT_MASK + AWTEvent.MOUSE_EVENT_MASK + AWTEvent.ITEM_EVENT_MASK;
-  
-    
+    //static long eventMask = AWTEvent.MOUSE_MOTION_EVENT_MASK + AWTEvent.MOUSE_EVENT_MASK + AWTEvent.ITEM_EVENT_MASK;
+     
     private static RemoteService instance = null;
 
     protected RemoteService() {
@@ -76,19 +72,17 @@ public class RemoteService {
     
     public void mouseEventListener()
     {}
+
     public static RemoteService getInstance() throws IOException {
         if (instance == null) {
             instance = new RemoteService();
             executor = (ThreadPoolExecutor) Executors.newFixedThreadPool(4);
-            StartRemoteService();
-
+             
         }
         return instance;
     }
     private static Endpoint endpoint = null;
-
     private static ThreadPoolExecutor executor;
-
     private static HttpServer server = null;
     private static HttpContext context = null;
 
@@ -102,7 +96,7 @@ public class RemoteService {
         StopRemoteService();
     }
 
-    private static void StartRemoteService() throws IOException {
+    public  static void StartRemoteService() throws IOException {
         server = HttpServer.create(new InetSocketAddress(1970), 5);
         endpoint = Endpoint.create(new RemoteControlService());
         //server.setExecutor(executor);
@@ -117,8 +111,8 @@ public class RemoteService {
     }
 
     private void StopRemoteService() {
+         System.out.println("Stopping  Services " + endpoint.toString());
       		endpoint.stop();
 		server.stop(1);
     }
-
 }

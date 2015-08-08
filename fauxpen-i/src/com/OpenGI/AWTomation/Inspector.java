@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package fauxpen.i;
+package com.OpenGI.AWTomation;
 
 import java.awt.AWTEvent;
 import java.awt.Component;
