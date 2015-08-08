@@ -47,18 +47,26 @@ namespace Java_Remote_Controller
         private ServiceReference1 .RemoteControlServiceClient rc = new ServiceReference1.RemoteControlServiceClient();
         private void button1_Click(object sender, EventArgs e)
         {
-
-
-            var s = rc.ScreenShot("MainForm");
+            try
+            {
+          var s = rc.ScreenShot(@"MainF0tm");
             using (var ms = new System.IO.MemoryStream(s)) {
                 pictureBox1.Image = Image.FromStream(ms);
  
             }
+            }
+            catch (Exception ex)
+            {
+                
+                throw ex;
+            }
+
+  
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            rc.PressButton();
+           
 
         }
 

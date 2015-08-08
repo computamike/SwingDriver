@@ -16,7 +16,7 @@ namespace Java_Remote_Controller.ServiceReference1 {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://i.fauxpen/")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://AWTomation.OpenGI.com/")]
     public partial class IllegalAccessException : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string messageField;
@@ -48,7 +48,7 @@ namespace Java_Remote_Controller.ServiceReference1 {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://i.fauxpen/")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://AWTomation.OpenGI.com/")]
     public partial class ogiComponent : object, System.ComponentModel.INotifyPropertyChanged {
         
         private bool checkedField;
@@ -136,7 +136,7 @@ namespace Java_Remote_Controller.ServiceReference1 {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://i.fauxpen/")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://AWTomation.OpenGI.com/")]
     public partial class IOException : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string messageField;
@@ -163,172 +163,136 @@ namespace Java_Remote_Controller.ServiceReference1 {
         }
     }
     
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34230")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://AWTomation.OpenGI.com/")]
+    public partial class AWTomationException : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string messageField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+        public string message {
+            get {
+                return this.messageField;
+            }
+            set {
+                this.messageField = value;
+                this.RaisePropertyChanged("message");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(Namespace="http://i.fauxpen/", ConfigurationName="ServiceReference1.RemoteControlService")]
+    [System.ServiceModel.ServiceContractAttribute(Namespace="http://AWTomation.OpenGI.com/", ConfigurationName="ServiceReference1.RemoteControlService")]
     public interface RemoteControlService {
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://i.fauxpen/RemoteControlService/GetControlByLabelRequest", ReplyAction="http://i.fauxpen/RemoteControlService/GetControlByLabelResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Java_Remote_Controller.ServiceReference1.IllegalAccessException), Action="http://i.fauxpen/RemoteControlService/GetControlByLabel/Fault/IllegalAccessExcept" +
-            "ion", Name="IllegalAccessException")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        Java_Remote_Controller.ServiceReference1.GetControlByLabelResponse GetControlByLabel(Java_Remote_Controller.ServiceReference1.GetControlByLabelRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://i.fauxpen/RemoteControlService/GetControlByLabelRequest", ReplyAction="http://i.fauxpen/RemoteControlService/GetControlByLabelResponse")]
-        System.Threading.Tasks.Task<Java_Remote_Controller.ServiceReference1.GetControlByLabelResponse> GetControlByLabelAsync(Java_Remote_Controller.ServiceReference1.GetControlByLabelRequest request);
-        
-        // CODEGEN: Parameter 'arg0' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://i.fauxpen/RemoteControlService/SetControlRequest", ReplyAction="http://i.fauxpen/RemoteControlService/SetControlResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Java_Remote_Controller.ServiceReference1.IllegalAccessException), Action="http://i.fauxpen/RemoteControlService/SetControl/Fault/IllegalAccessException", Name="IllegalAccessException")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        Java_Remote_Controller.ServiceReference1.SetControlResponse SetControl(Java_Remote_Controller.ServiceReference1.SetControlRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://i.fauxpen/RemoteControlService/SetControlRequest", ReplyAction="http://i.fauxpen/RemoteControlService/SetControlResponse")]
-        System.Threading.Tasks.Task<Java_Remote_Controller.ServiceReference1.SetControlResponse> SetControlAsync(Java_Remote_Controller.ServiceReference1.SetControlRequest request);
-        
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://i.fauxpen/RemoteControlService/GetControlsRequest", ReplyAction="http://i.fauxpen/RemoteControlService/GetControlsResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://AWTomation.OpenGI.com/RemoteControlService/GetControlsRequest", ReplyAction="http://AWTomation.OpenGI.com/RemoteControlService/GetControlsResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
         Java_Remote_Controller.ServiceReference1.GetControlsResponse GetControls(Java_Remote_Controller.ServiceReference1.GetControlsRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://i.fauxpen/RemoteControlService/GetControlsRequest", ReplyAction="http://i.fauxpen/RemoteControlService/GetControlsResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://AWTomation.OpenGI.com/RemoteControlService/GetControlsRequest", ReplyAction="http://AWTomation.OpenGI.com/RemoteControlService/GetControlsResponse")]
         System.Threading.Tasks.Task<Java_Remote_Controller.ServiceReference1.GetControlsResponse> GetControlsAsync(Java_Remote_Controller.ServiceReference1.GetControlsRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://i.fauxpen/RemoteControlService/GetFormsArrayRequest", ReplyAction="http://i.fauxpen/RemoteControlService/GetFormsArrayResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        Java_Remote_Controller.ServiceReference1.GetFormsArrayResponse GetFormsArray(Java_Remote_Controller.ServiceReference1.GetFormsArrayRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://i.fauxpen/RemoteControlService/GetFormsArrayRequest", ReplyAction="http://i.fauxpen/RemoteControlService/GetFormsArrayResponse")]
-        System.Threading.Tasks.Task<Java_Remote_Controller.ServiceReference1.GetFormsArrayResponse> GetFormsArrayAsync(Java_Remote_Controller.ServiceReference1.GetFormsArrayRequest request);
-        
-        // CODEGEN: Parameter 'arg0' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://i.fauxpen/RemoteControlService/ClickButtonRequest", ReplyAction="http://i.fauxpen/RemoteControlService/ClickButtonResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Java_Remote_Controller.ServiceReference1.IllegalAccessException), Action="http://i.fauxpen/RemoteControlService/ClickButton/Fault/IllegalAccessException", Name="IllegalAccessException")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        Java_Remote_Controller.ServiceReference1.ClickButtonResponse ClickButton(Java_Remote_Controller.ServiceReference1.ClickButtonRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://i.fauxpen/RemoteControlService/ClickButtonRequest", ReplyAction="http://i.fauxpen/RemoteControlService/ClickButtonResponse")]
-        System.Threading.Tasks.Task<Java_Remote_Controller.ServiceReference1.ClickButtonResponse> ClickButtonAsync(Java_Remote_Controller.ServiceReference1.ClickButtonRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://i.fauxpen/RemoteControlService/PressButtonRequest", ReplyAction="http://i.fauxpen/RemoteControlService/PressButtonResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        void PressButton();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://i.fauxpen/RemoteControlService/PressButtonRequest", ReplyAction="http://i.fauxpen/RemoteControlService/PressButtonResponse")]
-        System.Threading.Tasks.Task PressButtonAsync();
-        
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://i.fauxpen/RemoteControlService/GetControlRequest", ReplyAction="http://i.fauxpen/RemoteControlService/GetControlResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Java_Remote_Controller.ServiceReference1.IllegalAccessException), Action="http://i.fauxpen/RemoteControlService/GetControl/Fault/IllegalAccessException", Name="IllegalAccessException")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://AWTomation.OpenGI.com/RemoteControlService/GetControlRequest", ReplyAction="http://AWTomation.OpenGI.com/RemoteControlService/GetControlResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Java_Remote_Controller.ServiceReference1.IllegalAccessException), Action="http://AWTomation.OpenGI.com/RemoteControlService/GetControl/Fault/IllegalAccessE" +
+            "xception", Name="IllegalAccessException")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
         Java_Remote_Controller.ServiceReference1.GetControlResponse GetControl(Java_Remote_Controller.ServiceReference1.GetControlRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://i.fauxpen/RemoteControlService/GetControlRequest", ReplyAction="http://i.fauxpen/RemoteControlService/GetControlResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://AWTomation.OpenGI.com/RemoteControlService/GetControlRequest", ReplyAction="http://AWTomation.OpenGI.com/RemoteControlService/GetControlResponse")]
         System.Threading.Tasks.Task<Java_Remote_Controller.ServiceReference1.GetControlResponse> GetControlAsync(Java_Remote_Controller.ServiceReference1.GetControlRequest request);
         
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://i.fauxpen/RemoteControlService/GetControlByPathRequest", ReplyAction="http://i.fauxpen/RemoteControlService/GetControlByPathResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Java_Remote_Controller.ServiceReference1.IllegalAccessException), Action="http://i.fauxpen/RemoteControlService/GetControlByPath/Fault/IllegalAccessExcepti" +
-            "on", Name="IllegalAccessException")]
+        // CODEGEN: Parameter 'arg0' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://AWTomation.OpenGI.com/RemoteControlService/ClickControlRequest", ReplyAction="http://AWTomation.OpenGI.com/RemoteControlService/ClickControlResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Java_Remote_Controller.ServiceReference1.IllegalAccessException), Action="http://AWTomation.OpenGI.com/RemoteControlService/ClickControl/Fault/IllegalAcces" +
+            "sException", Name="IllegalAccessException")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        Java_Remote_Controller.ServiceReference1.GetControlByPathResponse GetControlByPath(Java_Remote_Controller.ServiceReference1.GetControlByPathRequest request);
+        Java_Remote_Controller.ServiceReference1.ClickControlResponse ClickControl(Java_Remote_Controller.ServiceReference1.ClickControlRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://i.fauxpen/RemoteControlService/GetControlByPathRequest", ReplyAction="http://i.fauxpen/RemoteControlService/GetControlByPathResponse")]
-        System.Threading.Tasks.Task<Java_Remote_Controller.ServiceReference1.GetControlByPathResponse> GetControlByPathAsync(Java_Remote_Controller.ServiceReference1.GetControlByPathRequest request);
-        
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://i.fauxpen/RemoteControlService/GetFormsRequest", ReplyAction="http://i.fauxpen/RemoteControlService/GetFormsResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        Java_Remote_Controller.ServiceReference1.GetFormsResponse GetForms(Java_Remote_Controller.ServiceReference1.GetFormsRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://i.fauxpen/RemoteControlService/GetFormsRequest", ReplyAction="http://i.fauxpen/RemoteControlService/GetFormsResponse")]
-        System.Threading.Tasks.Task<Java_Remote_Controller.ServiceReference1.GetFormsResponse> GetFormsAsync(Java_Remote_Controller.ServiceReference1.GetFormsRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://AWTomation.OpenGI.com/RemoteControlService/ClickControlRequest", ReplyAction="http://AWTomation.OpenGI.com/RemoteControlService/ClickControlResponse")]
+        System.Threading.Tasks.Task<Java_Remote_Controller.ServiceReference1.ClickControlResponse> ClickControlAsync(Java_Remote_Controller.ServiceReference1.ClickControlRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://i.fauxpen/RemoteControlService/GetControlsListRequest", ReplyAction="http://i.fauxpen/RemoteControlService/GetControlsListResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Java_Remote_Controller.ServiceReference1.IllegalAccessException), Action="http://i.fauxpen/RemoteControlService/GetControlsList/Fault/IllegalAccessExceptio" +
-            "n", Name="IllegalAccessException")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        Java_Remote_Controller.ServiceReference1.GetControlsListResponse GetControlsList(Java_Remote_Controller.ServiceReference1.GetControlsListRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://i.fauxpen/RemoteControlService/GetControlsListRequest", ReplyAction="http://i.fauxpen/RemoteControlService/GetControlsListResponse")]
-        System.Threading.Tasks.Task<Java_Remote_Controller.ServiceReference1.GetControlsListResponse> GetControlsListAsync(Java_Remote_Controller.ServiceReference1.GetControlsListRequest request);
-        
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://i.fauxpen/RemoteControlService/GetStringRequest", ReplyAction="http://i.fauxpen/RemoteControlService/GetStringResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        Java_Remote_Controller.ServiceReference1.GetStringResponse GetString(Java_Remote_Controller.ServiceReference1.GetStringRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://i.fauxpen/RemoteControlService/GetStringRequest", ReplyAction="http://i.fauxpen/RemoteControlService/GetStringResponse")]
-        System.Threading.Tasks.Task<Java_Remote_Controller.ServiceReference1.GetStringResponse> GetStringAsync(Java_Remote_Controller.ServiceReference1.GetStringRequest request);
-        
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://i.fauxpen/RemoteControlService/foobarRequest", ReplyAction="http://i.fauxpen/RemoteControlService/foobarResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Java_Remote_Controller.ServiceReference1.IllegalAccessException), Action="http://i.fauxpen/RemoteControlService/foobar/Fault/IllegalAccessException", Name="IllegalAccessException")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        Java_Remote_Controller.ServiceReference1.foobarResponse foobar(Java_Remote_Controller.ServiceReference1.foobarRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://i.fauxpen/RemoteControlService/foobarRequest", ReplyAction="http://i.fauxpen/RemoteControlService/foobarResponse")]
-        System.Threading.Tasks.Task<Java_Remote_Controller.ServiceReference1.foobarResponse> foobarAsync(Java_Remote_Controller.ServiceReference1.foobarRequest request);
-        
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://i.fauxpen/RemoteControlService/ScreenShotRequest", ReplyAction="http://i.fauxpen/RemoteControlService/ScreenShotResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Java_Remote_Controller.ServiceReference1.IOException), Action="http://i.fauxpen/RemoteControlService/ScreenShot/Fault/IOException", Name="IOException")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://AWTomation.OpenGI.com/RemoteControlService/ScreenShotRequest", ReplyAction="http://AWTomation.OpenGI.com/RemoteControlService/ScreenShotResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Java_Remote_Controller.ServiceReference1.IOException), Action="http://AWTomation.OpenGI.com/RemoteControlService/ScreenShot/Fault/IOException", Name="IOException")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Java_Remote_Controller.ServiceReference1.AWTomationException), Action="http://AWTomation.OpenGI.com/RemoteControlService/ScreenShot/Fault/AWTomationExce" +
+            "ption", Name="AWTomationException")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
         Java_Remote_Controller.ServiceReference1.ScreenShotResponse ScreenShot(Java_Remote_Controller.ServiceReference1.ScreenShotRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://i.fauxpen/RemoteControlService/ScreenShotRequest", ReplyAction="http://i.fauxpen/RemoteControlService/ScreenShotResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://AWTomation.OpenGI.com/RemoteControlService/ScreenShotRequest", ReplyAction="http://AWTomation.OpenGI.com/RemoteControlService/ScreenShotResponse")]
         System.Threading.Tasks.Task<Java_Remote_Controller.ServiceReference1.ScreenShotResponse> ScreenShotAsync(Java_Remote_Controller.ServiceReference1.ScreenShotRequest request);
+        
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://AWTomation.OpenGI.com/RemoteControlService/GetStringRequest", ReplyAction="http://AWTomation.OpenGI.com/RemoteControlService/GetStringResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        Java_Remote_Controller.ServiceReference1.GetStringResponse GetString(Java_Remote_Controller.ServiceReference1.GetStringRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://AWTomation.OpenGI.com/RemoteControlService/GetStringRequest", ReplyAction="http://AWTomation.OpenGI.com/RemoteControlService/GetStringResponse")]
+        System.Threading.Tasks.Task<Java_Remote_Controller.ServiceReference1.GetStringResponse> GetStringAsync(Java_Remote_Controller.ServiceReference1.GetStringRequest request);
+        
+        // CODEGEN: Parameter 'arg0' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://AWTomation.OpenGI.com/RemoteControlService/SetControlRequest", ReplyAction="http://AWTomation.OpenGI.com/RemoteControlService/SetControlResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Java_Remote_Controller.ServiceReference1.IllegalAccessException), Action="http://AWTomation.OpenGI.com/RemoteControlService/SetControl/Fault/IllegalAccessE" +
+            "xception", Name="IllegalAccessException")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        Java_Remote_Controller.ServiceReference1.SetControlResponse SetControl(Java_Remote_Controller.ServiceReference1.SetControlRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://AWTomation.OpenGI.com/RemoteControlService/SetControlRequest", ReplyAction="http://AWTomation.OpenGI.com/RemoteControlService/SetControlResponse")]
+        System.Threading.Tasks.Task<Java_Remote_Controller.ServiceReference1.SetControlResponse> SetControlAsync(Java_Remote_Controller.ServiceReference1.SetControlRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetControlByLabel", WrapperNamespace="http://i.fauxpen/", IsWrapped=true)]
-    public partial class GetControlByLabelRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetControls", WrapperNamespace="http://AWTomation.OpenGI.com/", IsWrapped=true)]
+    public partial class GetControlsRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://i.fauxpen/", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://AWTomation.OpenGI.com/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public string arg0;
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://i.fauxpen/", Order=1)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string arg1;
-        
-        public GetControlByLabelRequest() {
+        public GetControlsRequest() {
         }
         
-        public GetControlByLabelRequest(string arg0, string arg1) {
+        public GetControlsRequest(string arg0) {
             this.arg0 = arg0;
-            this.arg1 = arg1;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetControlByLabelResponse", WrapperNamespace="http://i.fauxpen/", IsWrapped=true)]
-    public partial class GetControlByLabelResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetControlsResponse", WrapperNamespace="http://AWTomation.OpenGI.com/", IsWrapped=true)]
+    public partial class GetControlsResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://i.fauxpen/", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://AWTomation.OpenGI.com/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public Java_Remote_Controller.ServiceReference1.ogiComponent @return;
+        public string @return;
         
-        public GetControlByLabelResponse() {
+        public GetControlsResponse() {
         }
         
-        public GetControlByLabelResponse(Java_Remote_Controller.ServiceReference1.ogiComponent @return) {
+        public GetControlsResponse(string @return) {
             this.@return = @return;
         }
     }
@@ -336,18 +300,146 @@ namespace Java_Remote_Controller.ServiceReference1 {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="SetControl", WrapperNamespace="http://i.fauxpen/", IsWrapped=true)]
-    public partial class SetControlRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetControl", WrapperNamespace="http://AWTomation.OpenGI.com/", IsWrapped=true)]
+    public partial class GetControlRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://i.fauxpen/", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://AWTomation.OpenGI.com/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public string arg0;
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://i.fauxpen/", Order=1)]
+        public GetControlRequest() {
+        }
+        
+        public GetControlRequest(string arg0) {
+            this.arg0 = arg0;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetControlResponse", WrapperNamespace="http://AWTomation.OpenGI.com/", IsWrapped=true)]
+    public partial class GetControlResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://AWTomation.OpenGI.com/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public Java_Remote_Controller.ServiceReference1.ogiComponent @return;
+        
+        public GetControlResponse() {
+        }
+        
+        public GetControlResponse(Java_Remote_Controller.ServiceReference1.ogiComponent @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="ClickControl", WrapperNamespace="http://AWTomation.OpenGI.com/", IsWrapped=true)]
+    public partial class ClickControlRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://AWTomation.OpenGI.com/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string arg0;
+        
+        public ClickControlRequest() {
+        }
+        
+        public ClickControlRequest(string arg0) {
+            this.arg0 = arg0;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="ClickControlResponse", WrapperNamespace="http://AWTomation.OpenGI.com/", IsWrapped=true)]
+    public partial class ClickControlResponse {
+        
+        public ClickControlResponse() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="ScreenShot", WrapperNamespace="http://AWTomation.OpenGI.com/", IsWrapped=true)]
+    public partial class ScreenShotRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://AWTomation.OpenGI.com/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string arg0;
+        
+        public ScreenShotRequest() {
+        }
+        
+        public ScreenShotRequest(string arg0) {
+            this.arg0 = arg0;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="ScreenShotResponse", WrapperNamespace="http://AWTomation.OpenGI.com/", IsWrapped=true)]
+    public partial class ScreenShotResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://AWTomation.OpenGI.com/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, DataType="base64Binary", IsNullable=true)]
+        public byte[] @return;
+        
+        public ScreenShotResponse() {
+        }
+        
+        public ScreenShotResponse(byte[] @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetString", WrapperNamespace="http://AWTomation.OpenGI.com/", IsWrapped=true)]
+    public partial class GetStringRequest {
+        
+        public GetStringRequest() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetStringResponse", WrapperNamespace="http://AWTomation.OpenGI.com/", IsWrapped=true)]
+    public partial class GetStringResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://AWTomation.OpenGI.com/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string @return;
+        
+        public GetStringResponse() {
+        }
+        
+        public GetStringResponse(string @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="SetControl", WrapperNamespace="http://AWTomation.OpenGI.com/", IsWrapped=true)]
+    public partial class SetControlRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://AWTomation.OpenGI.com/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string arg0;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://AWTomation.OpenGI.com/", Order=1)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public string arg1;
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://i.fauxpen/", Order=2)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://AWTomation.OpenGI.com/", Order=2)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public string arg2;
         
@@ -364,353 +456,10 @@ namespace Java_Remote_Controller.ServiceReference1 {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="SetControlResponse", WrapperNamespace="http://i.fauxpen/", IsWrapped=true)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="SetControlResponse", WrapperNamespace="http://AWTomation.OpenGI.com/", IsWrapped=true)]
     public partial class SetControlResponse {
         
         public SetControlResponse() {
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetControls", WrapperNamespace="http://i.fauxpen/", IsWrapped=true)]
-    public partial class GetControlsRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://i.fauxpen/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string arg0;
-        
-        public GetControlsRequest() {
-        }
-        
-        public GetControlsRequest(string arg0) {
-            this.arg0 = arg0;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetControlsResponse", WrapperNamespace="http://i.fauxpen/", IsWrapped=true)]
-    public partial class GetControlsResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://i.fauxpen/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string @return;
-        
-        public GetControlsResponse() {
-        }
-        
-        public GetControlsResponse(string @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetFormsArray", WrapperNamespace="http://i.fauxpen/", IsWrapped=true)]
-    public partial class GetFormsArrayRequest {
-        
-        public GetFormsArrayRequest() {
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetFormsArrayResponse", WrapperNamespace="http://i.fauxpen/", IsWrapped=true)]
-    public partial class GetFormsArrayResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://i.fauxpen/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string[] @return;
-        
-        public GetFormsArrayResponse() {
-        }
-        
-        public GetFormsArrayResponse(string[] @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ClickButton", WrapperNamespace="http://i.fauxpen/", IsWrapped=true)]
-    public partial class ClickButtonRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://i.fauxpen/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string arg0;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://i.fauxpen/", Order=1)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string arg1;
-        
-        public ClickButtonRequest() {
-        }
-        
-        public ClickButtonRequest(string arg0, string arg1) {
-            this.arg0 = arg0;
-            this.arg1 = arg1;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ClickButtonResponse", WrapperNamespace="http://i.fauxpen/", IsWrapped=true)]
-    public partial class ClickButtonResponse {
-        
-        public ClickButtonResponse() {
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetControl", WrapperNamespace="http://i.fauxpen/", IsWrapped=true)]
-    public partial class GetControlRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://i.fauxpen/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string arg0;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://i.fauxpen/", Order=1)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string arg1;
-        
-        public GetControlRequest() {
-        }
-        
-        public GetControlRequest(string arg0, string arg1) {
-            this.arg0 = arg0;
-            this.arg1 = arg1;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetControlResponse", WrapperNamespace="http://i.fauxpen/", IsWrapped=true)]
-    public partial class GetControlResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://i.fauxpen/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public Java_Remote_Controller.ServiceReference1.ogiComponent @return;
-        
-        public GetControlResponse() {
-        }
-        
-        public GetControlResponse(Java_Remote_Controller.ServiceReference1.ogiComponent @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetControlByPath", WrapperNamespace="http://i.fauxpen/", IsWrapped=true)]
-    public partial class GetControlByPathRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://i.fauxpen/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string arg0;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://i.fauxpen/", Order=1)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string arg1;
-        
-        public GetControlByPathRequest() {
-        }
-        
-        public GetControlByPathRequest(string arg0, string arg1) {
-            this.arg0 = arg0;
-            this.arg1 = arg1;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetControlByPathResponse", WrapperNamespace="http://i.fauxpen/", IsWrapped=true)]
-    public partial class GetControlByPathResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://i.fauxpen/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public Java_Remote_Controller.ServiceReference1.ogiComponent @return;
-        
-        public GetControlByPathResponse() {
-        }
-        
-        public GetControlByPathResponse(Java_Remote_Controller.ServiceReference1.ogiComponent @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetForms", WrapperNamespace="http://i.fauxpen/", IsWrapped=true)]
-    public partial class GetFormsRequest {
-        
-        public GetFormsRequest() {
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetFormsResponse", WrapperNamespace="http://i.fauxpen/", IsWrapped=true)]
-    public partial class GetFormsResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://i.fauxpen/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string @return;
-        
-        public GetFormsResponse() {
-        }
-        
-        public GetFormsResponse(string @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetControlsList", WrapperNamespace="http://i.fauxpen/", IsWrapped=true)]
-    public partial class GetControlsListRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://i.fauxpen/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string arg0;
-        
-        public GetControlsListRequest() {
-        }
-        
-        public GetControlsListRequest(string arg0) {
-            this.arg0 = arg0;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetControlsListResponse", WrapperNamespace="http://i.fauxpen/", IsWrapped=true)]
-    public partial class GetControlsListResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://i.fauxpen/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string[] @return;
-        
-        public GetControlsListResponse() {
-        }
-        
-        public GetControlsListResponse(string[] @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetString", WrapperNamespace="http://i.fauxpen/", IsWrapped=true)]
-    public partial class GetStringRequest {
-        
-        public GetStringRequest() {
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetStringResponse", WrapperNamespace="http://i.fauxpen/", IsWrapped=true)]
-    public partial class GetStringResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://i.fauxpen/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string @return;
-        
-        public GetStringResponse() {
-        }
-        
-        public GetStringResponse(string @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="foobar", WrapperNamespace="http://i.fauxpen/", IsWrapped=true)]
-    public partial class foobarRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://i.fauxpen/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string arg0;
-        
-        public foobarRequest() {
-        }
-        
-        public foobarRequest(string arg0) {
-            this.arg0 = arg0;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="foobarResponse", WrapperNamespace="http://i.fauxpen/", IsWrapped=true)]
-    public partial class foobarResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://i.fauxpen/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public Java_Remote_Controller.ServiceReference1.ogiComponent @return;
-        
-        public foobarResponse() {
-        }
-        
-        public foobarResponse(Java_Remote_Controller.ServiceReference1.ogiComponent @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ScreenShot", WrapperNamespace="http://i.fauxpen/", IsWrapped=true)]
-    public partial class ScreenShotRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://i.fauxpen/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string arg0;
-        
-        public ScreenShotRequest() {
-        }
-        
-        public ScreenShotRequest(string arg0) {
-            this.arg0 = arg0;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ScreenShotResponse", WrapperNamespace="http://i.fauxpen/", IsWrapped=true)]
-    public partial class ScreenShotResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://i.fauxpen/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, DataType="base64Binary", IsNullable=true)]
-        public byte[] @return;
-        
-        public ScreenShotResponse() {
-        }
-        
-        public ScreenShotResponse(byte[] @return) {
-            this.@return = @return;
         }
     }
     
@@ -742,28 +491,115 @@ namespace Java_Remote_Controller.ServiceReference1 {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Java_Remote_Controller.ServiceReference1.GetControlByLabelResponse Java_Remote_Controller.ServiceReference1.RemoteControlService.GetControlByLabel(Java_Remote_Controller.ServiceReference1.GetControlByLabelRequest request) {
-            return base.Channel.GetControlByLabel(request);
+        Java_Remote_Controller.ServiceReference1.GetControlsResponse Java_Remote_Controller.ServiceReference1.RemoteControlService.GetControls(Java_Remote_Controller.ServiceReference1.GetControlsRequest request) {
+            return base.Channel.GetControls(request);
         }
         
-        public Java_Remote_Controller.ServiceReference1.ogiComponent GetControlByLabel(string arg0, string arg1) {
-            Java_Remote_Controller.ServiceReference1.GetControlByLabelRequest inValue = new Java_Remote_Controller.ServiceReference1.GetControlByLabelRequest();
+        public string GetControls(string arg0) {
+            Java_Remote_Controller.ServiceReference1.GetControlsRequest inValue = new Java_Remote_Controller.ServiceReference1.GetControlsRequest();
             inValue.arg0 = arg0;
-            inValue.arg1 = arg1;
-            Java_Remote_Controller.ServiceReference1.GetControlByLabelResponse retVal = ((Java_Remote_Controller.ServiceReference1.RemoteControlService)(this)).GetControlByLabel(inValue);
+            Java_Remote_Controller.ServiceReference1.GetControlsResponse retVal = ((Java_Remote_Controller.ServiceReference1.RemoteControlService)(this)).GetControls(inValue);
             return retVal.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Java_Remote_Controller.ServiceReference1.GetControlByLabelResponse> Java_Remote_Controller.ServiceReference1.RemoteControlService.GetControlByLabelAsync(Java_Remote_Controller.ServiceReference1.GetControlByLabelRequest request) {
-            return base.Channel.GetControlByLabelAsync(request);
+        System.Threading.Tasks.Task<Java_Remote_Controller.ServiceReference1.GetControlsResponse> Java_Remote_Controller.ServiceReference1.RemoteControlService.GetControlsAsync(Java_Remote_Controller.ServiceReference1.GetControlsRequest request) {
+            return base.Channel.GetControlsAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Java_Remote_Controller.ServiceReference1.GetControlByLabelResponse> GetControlByLabelAsync(string arg0, string arg1) {
-            Java_Remote_Controller.ServiceReference1.GetControlByLabelRequest inValue = new Java_Remote_Controller.ServiceReference1.GetControlByLabelRequest();
+        public System.Threading.Tasks.Task<Java_Remote_Controller.ServiceReference1.GetControlsResponse> GetControlsAsync(string arg0) {
+            Java_Remote_Controller.ServiceReference1.GetControlsRequest inValue = new Java_Remote_Controller.ServiceReference1.GetControlsRequest();
             inValue.arg0 = arg0;
-            inValue.arg1 = arg1;
-            return ((Java_Remote_Controller.ServiceReference1.RemoteControlService)(this)).GetControlByLabelAsync(inValue);
+            return ((Java_Remote_Controller.ServiceReference1.RemoteControlService)(this)).GetControlsAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Java_Remote_Controller.ServiceReference1.GetControlResponse Java_Remote_Controller.ServiceReference1.RemoteControlService.GetControl(Java_Remote_Controller.ServiceReference1.GetControlRequest request) {
+            return base.Channel.GetControl(request);
+        }
+        
+        public Java_Remote_Controller.ServiceReference1.ogiComponent GetControl(string arg0) {
+            Java_Remote_Controller.ServiceReference1.GetControlRequest inValue = new Java_Remote_Controller.ServiceReference1.GetControlRequest();
+            inValue.arg0 = arg0;
+            Java_Remote_Controller.ServiceReference1.GetControlResponse retVal = ((Java_Remote_Controller.ServiceReference1.RemoteControlService)(this)).GetControl(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<Java_Remote_Controller.ServiceReference1.GetControlResponse> Java_Remote_Controller.ServiceReference1.RemoteControlService.GetControlAsync(Java_Remote_Controller.ServiceReference1.GetControlRequest request) {
+            return base.Channel.GetControlAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<Java_Remote_Controller.ServiceReference1.GetControlResponse> GetControlAsync(string arg0) {
+            Java_Remote_Controller.ServiceReference1.GetControlRequest inValue = new Java_Remote_Controller.ServiceReference1.GetControlRequest();
+            inValue.arg0 = arg0;
+            return ((Java_Remote_Controller.ServiceReference1.RemoteControlService)(this)).GetControlAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Java_Remote_Controller.ServiceReference1.ClickControlResponse Java_Remote_Controller.ServiceReference1.RemoteControlService.ClickControl(Java_Remote_Controller.ServiceReference1.ClickControlRequest request) {
+            return base.Channel.ClickControl(request);
+        }
+        
+        public void ClickControl(string arg0) {
+            Java_Remote_Controller.ServiceReference1.ClickControlRequest inValue = new Java_Remote_Controller.ServiceReference1.ClickControlRequest();
+            inValue.arg0 = arg0;
+            Java_Remote_Controller.ServiceReference1.ClickControlResponse retVal = ((Java_Remote_Controller.ServiceReference1.RemoteControlService)(this)).ClickControl(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<Java_Remote_Controller.ServiceReference1.ClickControlResponse> Java_Remote_Controller.ServiceReference1.RemoteControlService.ClickControlAsync(Java_Remote_Controller.ServiceReference1.ClickControlRequest request) {
+            return base.Channel.ClickControlAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<Java_Remote_Controller.ServiceReference1.ClickControlResponse> ClickControlAsync(string arg0) {
+            Java_Remote_Controller.ServiceReference1.ClickControlRequest inValue = new Java_Remote_Controller.ServiceReference1.ClickControlRequest();
+            inValue.arg0 = arg0;
+            return ((Java_Remote_Controller.ServiceReference1.RemoteControlService)(this)).ClickControlAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Java_Remote_Controller.ServiceReference1.ScreenShotResponse Java_Remote_Controller.ServiceReference1.RemoteControlService.ScreenShot(Java_Remote_Controller.ServiceReference1.ScreenShotRequest request) {
+            return base.Channel.ScreenShot(request);
+        }
+        
+        public byte[] ScreenShot(string arg0) {
+            Java_Remote_Controller.ServiceReference1.ScreenShotRequest inValue = new Java_Remote_Controller.ServiceReference1.ScreenShotRequest();
+            inValue.arg0 = arg0;
+            Java_Remote_Controller.ServiceReference1.ScreenShotResponse retVal = ((Java_Remote_Controller.ServiceReference1.RemoteControlService)(this)).ScreenShot(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<Java_Remote_Controller.ServiceReference1.ScreenShotResponse> Java_Remote_Controller.ServiceReference1.RemoteControlService.ScreenShotAsync(Java_Remote_Controller.ServiceReference1.ScreenShotRequest request) {
+            return base.Channel.ScreenShotAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<Java_Remote_Controller.ServiceReference1.ScreenShotResponse> ScreenShotAsync(string arg0) {
+            Java_Remote_Controller.ServiceReference1.ScreenShotRequest inValue = new Java_Remote_Controller.ServiceReference1.ScreenShotRequest();
+            inValue.arg0 = arg0;
+            return ((Java_Remote_Controller.ServiceReference1.RemoteControlService)(this)).ScreenShotAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Java_Remote_Controller.ServiceReference1.GetStringResponse Java_Remote_Controller.ServiceReference1.RemoteControlService.GetString(Java_Remote_Controller.ServiceReference1.GetStringRequest request) {
+            return base.Channel.GetString(request);
+        }
+        
+        public string GetString() {
+            Java_Remote_Controller.ServiceReference1.GetStringRequest inValue = new Java_Remote_Controller.ServiceReference1.GetStringRequest();
+            Java_Remote_Controller.ServiceReference1.GetStringResponse retVal = ((Java_Remote_Controller.ServiceReference1.RemoteControlService)(this)).GetString(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<Java_Remote_Controller.ServiceReference1.GetStringResponse> Java_Remote_Controller.ServiceReference1.RemoteControlService.GetStringAsync(Java_Remote_Controller.ServiceReference1.GetStringRequest request) {
+            return base.Channel.GetStringAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<Java_Remote_Controller.ServiceReference1.GetStringResponse> GetStringAsync() {
+            Java_Remote_Controller.ServiceReference1.GetStringRequest inValue = new Java_Remote_Controller.ServiceReference1.GetStringRequest();
+            return ((Java_Remote_Controller.ServiceReference1.RemoteControlService)(this)).GetStringAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -790,243 +626,6 @@ namespace Java_Remote_Controller.ServiceReference1 {
             inValue.arg1 = arg1;
             inValue.arg2 = arg2;
             return ((Java_Remote_Controller.ServiceReference1.RemoteControlService)(this)).SetControlAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Java_Remote_Controller.ServiceReference1.GetControlsResponse Java_Remote_Controller.ServiceReference1.RemoteControlService.GetControls(Java_Remote_Controller.ServiceReference1.GetControlsRequest request) {
-            return base.Channel.GetControls(request);
-        }
-        
-        public string GetControls(string arg0) {
-            Java_Remote_Controller.ServiceReference1.GetControlsRequest inValue = new Java_Remote_Controller.ServiceReference1.GetControlsRequest();
-            inValue.arg0 = arg0;
-            Java_Remote_Controller.ServiceReference1.GetControlsResponse retVal = ((Java_Remote_Controller.ServiceReference1.RemoteControlService)(this)).GetControls(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Java_Remote_Controller.ServiceReference1.GetControlsResponse> Java_Remote_Controller.ServiceReference1.RemoteControlService.GetControlsAsync(Java_Remote_Controller.ServiceReference1.GetControlsRequest request) {
-            return base.Channel.GetControlsAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<Java_Remote_Controller.ServiceReference1.GetControlsResponse> GetControlsAsync(string arg0) {
-            Java_Remote_Controller.ServiceReference1.GetControlsRequest inValue = new Java_Remote_Controller.ServiceReference1.GetControlsRequest();
-            inValue.arg0 = arg0;
-            return ((Java_Remote_Controller.ServiceReference1.RemoteControlService)(this)).GetControlsAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Java_Remote_Controller.ServiceReference1.GetFormsArrayResponse Java_Remote_Controller.ServiceReference1.RemoteControlService.GetFormsArray(Java_Remote_Controller.ServiceReference1.GetFormsArrayRequest request) {
-            return base.Channel.GetFormsArray(request);
-        }
-        
-        public string[] GetFormsArray() {
-            Java_Remote_Controller.ServiceReference1.GetFormsArrayRequest inValue = new Java_Remote_Controller.ServiceReference1.GetFormsArrayRequest();
-            Java_Remote_Controller.ServiceReference1.GetFormsArrayResponse retVal = ((Java_Remote_Controller.ServiceReference1.RemoteControlService)(this)).GetFormsArray(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Java_Remote_Controller.ServiceReference1.GetFormsArrayResponse> Java_Remote_Controller.ServiceReference1.RemoteControlService.GetFormsArrayAsync(Java_Remote_Controller.ServiceReference1.GetFormsArrayRequest request) {
-            return base.Channel.GetFormsArrayAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<Java_Remote_Controller.ServiceReference1.GetFormsArrayResponse> GetFormsArrayAsync() {
-            Java_Remote_Controller.ServiceReference1.GetFormsArrayRequest inValue = new Java_Remote_Controller.ServiceReference1.GetFormsArrayRequest();
-            return ((Java_Remote_Controller.ServiceReference1.RemoteControlService)(this)).GetFormsArrayAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Java_Remote_Controller.ServiceReference1.ClickButtonResponse Java_Remote_Controller.ServiceReference1.RemoteControlService.ClickButton(Java_Remote_Controller.ServiceReference1.ClickButtonRequest request) {
-            return base.Channel.ClickButton(request);
-        }
-        
-        public void ClickButton(string arg0, string arg1) {
-            Java_Remote_Controller.ServiceReference1.ClickButtonRequest inValue = new Java_Remote_Controller.ServiceReference1.ClickButtonRequest();
-            inValue.arg0 = arg0;
-            inValue.arg1 = arg1;
-            Java_Remote_Controller.ServiceReference1.ClickButtonResponse retVal = ((Java_Remote_Controller.ServiceReference1.RemoteControlService)(this)).ClickButton(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Java_Remote_Controller.ServiceReference1.ClickButtonResponse> Java_Remote_Controller.ServiceReference1.RemoteControlService.ClickButtonAsync(Java_Remote_Controller.ServiceReference1.ClickButtonRequest request) {
-            return base.Channel.ClickButtonAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<Java_Remote_Controller.ServiceReference1.ClickButtonResponse> ClickButtonAsync(string arg0, string arg1) {
-            Java_Remote_Controller.ServiceReference1.ClickButtonRequest inValue = new Java_Remote_Controller.ServiceReference1.ClickButtonRequest();
-            inValue.arg0 = arg0;
-            inValue.arg1 = arg1;
-            return ((Java_Remote_Controller.ServiceReference1.RemoteControlService)(this)).ClickButtonAsync(inValue);
-        }
-        
-        public void PressButton() {
-            base.Channel.PressButton();
-        }
-        
-        public System.Threading.Tasks.Task PressButtonAsync() {
-            return base.Channel.PressButtonAsync();
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Java_Remote_Controller.ServiceReference1.GetControlResponse Java_Remote_Controller.ServiceReference1.RemoteControlService.GetControl(Java_Remote_Controller.ServiceReference1.GetControlRequest request) {
-            return base.Channel.GetControl(request);
-        }
-        
-        public Java_Remote_Controller.ServiceReference1.ogiComponent GetControl(string arg0, string arg1) {
-            Java_Remote_Controller.ServiceReference1.GetControlRequest inValue = new Java_Remote_Controller.ServiceReference1.GetControlRequest();
-            inValue.arg0 = arg0;
-            inValue.arg1 = arg1;
-            Java_Remote_Controller.ServiceReference1.GetControlResponse retVal = ((Java_Remote_Controller.ServiceReference1.RemoteControlService)(this)).GetControl(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Java_Remote_Controller.ServiceReference1.GetControlResponse> Java_Remote_Controller.ServiceReference1.RemoteControlService.GetControlAsync(Java_Remote_Controller.ServiceReference1.GetControlRequest request) {
-            return base.Channel.GetControlAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<Java_Remote_Controller.ServiceReference1.GetControlResponse> GetControlAsync(string arg0, string arg1) {
-            Java_Remote_Controller.ServiceReference1.GetControlRequest inValue = new Java_Remote_Controller.ServiceReference1.GetControlRequest();
-            inValue.arg0 = arg0;
-            inValue.arg1 = arg1;
-            return ((Java_Remote_Controller.ServiceReference1.RemoteControlService)(this)).GetControlAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Java_Remote_Controller.ServiceReference1.GetControlByPathResponse Java_Remote_Controller.ServiceReference1.RemoteControlService.GetControlByPath(Java_Remote_Controller.ServiceReference1.GetControlByPathRequest request) {
-            return base.Channel.GetControlByPath(request);
-        }
-        
-        public Java_Remote_Controller.ServiceReference1.ogiComponent GetControlByPath(string arg0, string arg1) {
-            Java_Remote_Controller.ServiceReference1.GetControlByPathRequest inValue = new Java_Remote_Controller.ServiceReference1.GetControlByPathRequest();
-            inValue.arg0 = arg0;
-            inValue.arg1 = arg1;
-            Java_Remote_Controller.ServiceReference1.GetControlByPathResponse retVal = ((Java_Remote_Controller.ServiceReference1.RemoteControlService)(this)).GetControlByPath(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Java_Remote_Controller.ServiceReference1.GetControlByPathResponse> Java_Remote_Controller.ServiceReference1.RemoteControlService.GetControlByPathAsync(Java_Remote_Controller.ServiceReference1.GetControlByPathRequest request) {
-            return base.Channel.GetControlByPathAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<Java_Remote_Controller.ServiceReference1.GetControlByPathResponse> GetControlByPathAsync(string arg0, string arg1) {
-            Java_Remote_Controller.ServiceReference1.GetControlByPathRequest inValue = new Java_Remote_Controller.ServiceReference1.GetControlByPathRequest();
-            inValue.arg0 = arg0;
-            inValue.arg1 = arg1;
-            return ((Java_Remote_Controller.ServiceReference1.RemoteControlService)(this)).GetControlByPathAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Java_Remote_Controller.ServiceReference1.GetFormsResponse Java_Remote_Controller.ServiceReference1.RemoteControlService.GetForms(Java_Remote_Controller.ServiceReference1.GetFormsRequest request) {
-            return base.Channel.GetForms(request);
-        }
-        
-        public string GetForms() {
-            Java_Remote_Controller.ServiceReference1.GetFormsRequest inValue = new Java_Remote_Controller.ServiceReference1.GetFormsRequest();
-            Java_Remote_Controller.ServiceReference1.GetFormsResponse retVal = ((Java_Remote_Controller.ServiceReference1.RemoteControlService)(this)).GetForms(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Java_Remote_Controller.ServiceReference1.GetFormsResponse> Java_Remote_Controller.ServiceReference1.RemoteControlService.GetFormsAsync(Java_Remote_Controller.ServiceReference1.GetFormsRequest request) {
-            return base.Channel.GetFormsAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<Java_Remote_Controller.ServiceReference1.GetFormsResponse> GetFormsAsync() {
-            Java_Remote_Controller.ServiceReference1.GetFormsRequest inValue = new Java_Remote_Controller.ServiceReference1.GetFormsRequest();
-            return ((Java_Remote_Controller.ServiceReference1.RemoteControlService)(this)).GetFormsAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Java_Remote_Controller.ServiceReference1.GetControlsListResponse Java_Remote_Controller.ServiceReference1.RemoteControlService.GetControlsList(Java_Remote_Controller.ServiceReference1.GetControlsListRequest request) {
-            return base.Channel.GetControlsList(request);
-        }
-        
-        public string[] GetControlsList(string arg0) {
-            Java_Remote_Controller.ServiceReference1.GetControlsListRequest inValue = new Java_Remote_Controller.ServiceReference1.GetControlsListRequest();
-            inValue.arg0 = arg0;
-            Java_Remote_Controller.ServiceReference1.GetControlsListResponse retVal = ((Java_Remote_Controller.ServiceReference1.RemoteControlService)(this)).GetControlsList(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Java_Remote_Controller.ServiceReference1.GetControlsListResponse> Java_Remote_Controller.ServiceReference1.RemoteControlService.GetControlsListAsync(Java_Remote_Controller.ServiceReference1.GetControlsListRequest request) {
-            return base.Channel.GetControlsListAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<Java_Remote_Controller.ServiceReference1.GetControlsListResponse> GetControlsListAsync(string arg0) {
-            Java_Remote_Controller.ServiceReference1.GetControlsListRequest inValue = new Java_Remote_Controller.ServiceReference1.GetControlsListRequest();
-            inValue.arg0 = arg0;
-            return ((Java_Remote_Controller.ServiceReference1.RemoteControlService)(this)).GetControlsListAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Java_Remote_Controller.ServiceReference1.GetStringResponse Java_Remote_Controller.ServiceReference1.RemoteControlService.GetString(Java_Remote_Controller.ServiceReference1.GetStringRequest request) {
-            return base.Channel.GetString(request);
-        }
-        
-        public string GetString() {
-            Java_Remote_Controller.ServiceReference1.GetStringRequest inValue = new Java_Remote_Controller.ServiceReference1.GetStringRequest();
-            Java_Remote_Controller.ServiceReference1.GetStringResponse retVal = ((Java_Remote_Controller.ServiceReference1.RemoteControlService)(this)).GetString(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Java_Remote_Controller.ServiceReference1.GetStringResponse> Java_Remote_Controller.ServiceReference1.RemoteControlService.GetStringAsync(Java_Remote_Controller.ServiceReference1.GetStringRequest request) {
-            return base.Channel.GetStringAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<Java_Remote_Controller.ServiceReference1.GetStringResponse> GetStringAsync() {
-            Java_Remote_Controller.ServiceReference1.GetStringRequest inValue = new Java_Remote_Controller.ServiceReference1.GetStringRequest();
-            return ((Java_Remote_Controller.ServiceReference1.RemoteControlService)(this)).GetStringAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Java_Remote_Controller.ServiceReference1.foobarResponse Java_Remote_Controller.ServiceReference1.RemoteControlService.foobar(Java_Remote_Controller.ServiceReference1.foobarRequest request) {
-            return base.Channel.foobar(request);
-        }
-        
-        public Java_Remote_Controller.ServiceReference1.ogiComponent foobar(string arg0) {
-            Java_Remote_Controller.ServiceReference1.foobarRequest inValue = new Java_Remote_Controller.ServiceReference1.foobarRequest();
-            inValue.arg0 = arg0;
-            Java_Remote_Controller.ServiceReference1.foobarResponse retVal = ((Java_Remote_Controller.ServiceReference1.RemoteControlService)(this)).foobar(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Java_Remote_Controller.ServiceReference1.foobarResponse> Java_Remote_Controller.ServiceReference1.RemoteControlService.foobarAsync(Java_Remote_Controller.ServiceReference1.foobarRequest request) {
-            return base.Channel.foobarAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<Java_Remote_Controller.ServiceReference1.foobarResponse> foobarAsync(string arg0) {
-            Java_Remote_Controller.ServiceReference1.foobarRequest inValue = new Java_Remote_Controller.ServiceReference1.foobarRequest();
-            inValue.arg0 = arg0;
-            return ((Java_Remote_Controller.ServiceReference1.RemoteControlService)(this)).foobarAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Java_Remote_Controller.ServiceReference1.ScreenShotResponse Java_Remote_Controller.ServiceReference1.RemoteControlService.ScreenShot(Java_Remote_Controller.ServiceReference1.ScreenShotRequest request) {
-            return base.Channel.ScreenShot(request);
-        }
-        
-        public byte[] ScreenShot(string arg0) {
-            Java_Remote_Controller.ServiceReference1.ScreenShotRequest inValue = new Java_Remote_Controller.ServiceReference1.ScreenShotRequest();
-            inValue.arg0 = arg0;
-            Java_Remote_Controller.ServiceReference1.ScreenShotResponse retVal = ((Java_Remote_Controller.ServiceReference1.RemoteControlService)(this)).ScreenShot(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Java_Remote_Controller.ServiceReference1.ScreenShotResponse> Java_Remote_Controller.ServiceReference1.RemoteControlService.ScreenShotAsync(Java_Remote_Controller.ServiceReference1.ScreenShotRequest request) {
-            return base.Channel.ScreenShotAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<Java_Remote_Controller.ServiceReference1.ScreenShotResponse> ScreenShotAsync(string arg0) {
-            Java_Remote_Controller.ServiceReference1.ScreenShotRequest inValue = new Java_Remote_Controller.ServiceReference1.ScreenShotRequest();
-            inValue.arg0 = arg0;
-            return ((Java_Remote_Controller.ServiceReference1.RemoteControlService)(this)).ScreenShotAsync(inValue);
         }
     }
 }

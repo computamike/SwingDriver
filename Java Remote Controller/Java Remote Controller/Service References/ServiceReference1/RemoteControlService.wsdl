@@ -1,48 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<definitions xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="http://i.fauxpen/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" name="RemoteControlService" targetNamespace="http://i.fauxpen/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+<definitions xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="http://AWTomation.OpenGI.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" name="RemoteControlService" targetNamespace="http://AWTomation.OpenGI.com/" xmlns="http://schemas.xmlsoap.org/wsdl/">
   <types>
     <xsd:schema>
-      <xsd:import schemaLocation="http://localhost:1970/RemoteService/RemoteControl?xsd=1" namespace="http://i.fauxpen/" />
+      <xsd:import schemaLocation="http://localhost:1970/RemoteService/RemoteControl?xsd=1" namespace="http://AWTomation.OpenGI.com/" />
     </xsd:schema>
   </types>
-  <message name="GetControlByLabel">
-    <part name="parameters" element="tns:GetControlByLabel" />
-  </message>
-  <message name="GetControlByLabelResponse">
-    <part name="parameters" element="tns:GetControlByLabelResponse" />
-  </message>
-  <message name="IllegalAccessException">
-    <part name="fault" element="tns:IllegalAccessException" />
-  </message>
-  <message name="SetControl">
-    <part name="parameters" element="tns:SetControl" />
-  </message>
-  <message name="SetControlResponse">
-    <part name="parameters" element="tns:SetControlResponse" />
-  </message>
   <message name="GetControls">
     <part name="parameters" element="tns:GetControls" />
   </message>
   <message name="GetControlsResponse">
     <part name="parameters" element="tns:GetControlsResponse" />
-  </message>
-  <message name="GetFormsArray">
-    <part name="parameters" element="tns:GetFormsArray" />
-  </message>
-  <message name="GetFormsArrayResponse">
-    <part name="parameters" element="tns:GetFormsArrayResponse" />
-  </message>
-  <message name="ClickButton">
-    <part name="parameters" element="tns:ClickButton" />
-  </message>
-  <message name="ClickButtonResponse">
-    <part name="parameters" element="tns:ClickButtonResponse" />
-  </message>
-  <message name="PressButton">
-    <part name="parameters" element="tns:PressButton" />
-  </message>
-  <message name="PressButtonResponse">
-    <part name="parameters" element="tns:PressButtonResponse" />
   </message>
   <message name="GetControl">
     <part name="parameters" element="tns:GetControl" />
@@ -50,35 +17,14 @@
   <message name="GetControlResponse">
     <part name="parameters" element="tns:GetControlResponse" />
   </message>
-  <message name="GetControlByPath">
-    <part name="parameters" element="tns:GetControlByPath" />
+  <message name="IllegalAccessException">
+    <part name="fault" element="tns:IllegalAccessException" />
   </message>
-  <message name="GetControlByPathResponse">
-    <part name="parameters" element="tns:GetControlByPathResponse" />
+  <message name="ClickControl">
+    <part name="parameters" element="tns:ClickControl" />
   </message>
-  <message name="GetForms">
-    <part name="parameters" element="tns:GetForms" />
-  </message>
-  <message name="GetFormsResponse">
-    <part name="parameters" element="tns:GetFormsResponse" />
-  </message>
-  <message name="GetControlsList">
-    <part name="parameters" element="tns:GetControlsList" />
-  </message>
-  <message name="GetControlsListResponse">
-    <part name="parameters" element="tns:GetControlsListResponse" />
-  </message>
-  <message name="GetString">
-    <part name="parameters" element="tns:GetString" />
-  </message>
-  <message name="GetStringResponse">
-    <part name="parameters" element="tns:GetStringResponse" />
-  </message>
-  <message name="foobar">
-    <part name="parameters" element="tns:foobar" />
-  </message>
-  <message name="foobarResponse">
-    <part name="parameters" element="tns:foobarResponse" />
+  <message name="ClickControlResponse">
+    <part name="parameters" element="tns:ClickControlResponse" />
   </message>
   <message name="ScreenShot">
     <part name="parameters" element="tns:ScreenShot" />
@@ -89,125 +35,55 @@
   <message name="IOException">
     <part name="fault" element="tns:IOException" />
   </message>
+  <message name="AWTomationException">
+    <part name="fault" element="tns:AWTomationException" />
+  </message>
+  <message name="GetString">
+    <part name="parameters" element="tns:GetString" />
+  </message>
+  <message name="GetStringResponse">
+    <part name="parameters" element="tns:GetStringResponse" />
+  </message>
+  <message name="SetControl">
+    <part name="parameters" element="tns:SetControl" />
+  </message>
+  <message name="SetControlResponse">
+    <part name="parameters" element="tns:SetControlResponse" />
+  </message>
   <portType name="RemoteControlService">
-    <operation name="GetControlByLabel">
-      <input wsam:Action="http://i.fauxpen/RemoteControlService/GetControlByLabelRequest" message="tns:GetControlByLabel" />
-      <output wsam:Action="http://i.fauxpen/RemoteControlService/GetControlByLabelResponse" message="tns:GetControlByLabelResponse" />
-      <fault wsam:Action="http://i.fauxpen/RemoteControlService/GetControlByLabel/Fault/IllegalAccessException" name="IllegalAccessException" message="tns:IllegalAccessException" />
-    </operation>
-    <operation name="SetControl">
-      <input wsam:Action="http://i.fauxpen/RemoteControlService/SetControlRequest" message="tns:SetControl" />
-      <output wsam:Action="http://i.fauxpen/RemoteControlService/SetControlResponse" message="tns:SetControlResponse" />
-      <fault wsam:Action="http://i.fauxpen/RemoteControlService/SetControl/Fault/IllegalAccessException" name="IllegalAccessException" message="tns:IllegalAccessException" />
-    </operation>
     <operation name="GetControls">
-      <input wsam:Action="http://i.fauxpen/RemoteControlService/GetControlsRequest" message="tns:GetControls" />
-      <output wsam:Action="http://i.fauxpen/RemoteControlService/GetControlsResponse" message="tns:GetControlsResponse" />
-    </operation>
-    <operation name="GetFormsArray">
-      <input wsam:Action="http://i.fauxpen/RemoteControlService/GetFormsArrayRequest" message="tns:GetFormsArray" />
-      <output wsam:Action="http://i.fauxpen/RemoteControlService/GetFormsArrayResponse" message="tns:GetFormsArrayResponse" />
-    </operation>
-    <operation name="ClickButton">
-      <input wsam:Action="http://i.fauxpen/RemoteControlService/ClickButtonRequest" message="tns:ClickButton" />
-      <output wsam:Action="http://i.fauxpen/RemoteControlService/ClickButtonResponse" message="tns:ClickButtonResponse" />
-      <fault wsam:Action="http://i.fauxpen/RemoteControlService/ClickButton/Fault/IllegalAccessException" name="IllegalAccessException" message="tns:IllegalAccessException" />
-    </operation>
-    <operation name="PressButton">
-      <input wsam:Action="http://i.fauxpen/RemoteControlService/PressButtonRequest" message="tns:PressButton" />
-      <output wsam:Action="http://i.fauxpen/RemoteControlService/PressButtonResponse" message="tns:PressButtonResponse" />
+      <input wsam:Action="http://AWTomation.OpenGI.com/RemoteControlService/GetControlsRequest" message="tns:GetControls" />
+      <output wsam:Action="http://AWTomation.OpenGI.com/RemoteControlService/GetControlsResponse" message="tns:GetControlsResponse" />
     </operation>
     <operation name="GetControl">
-      <input wsam:Action="http://i.fauxpen/RemoteControlService/GetControlRequest" message="tns:GetControl" />
-      <output wsam:Action="http://i.fauxpen/RemoteControlService/GetControlResponse" message="tns:GetControlResponse" />
-      <fault wsam:Action="http://i.fauxpen/RemoteControlService/GetControl/Fault/IllegalAccessException" name="IllegalAccessException" message="tns:IllegalAccessException" />
+      <input wsam:Action="http://AWTomation.OpenGI.com/RemoteControlService/GetControlRequest" message="tns:GetControl" />
+      <output wsam:Action="http://AWTomation.OpenGI.com/RemoteControlService/GetControlResponse" message="tns:GetControlResponse" />
+      <fault wsam:Action="http://AWTomation.OpenGI.com/RemoteControlService/GetControl/Fault/IllegalAccessException" name="IllegalAccessException" message="tns:IllegalAccessException" />
     </operation>
-    <operation name="GetControlByPath">
-      <input wsam:Action="http://i.fauxpen/RemoteControlService/GetControlByPathRequest" message="tns:GetControlByPath" />
-      <output wsam:Action="http://i.fauxpen/RemoteControlService/GetControlByPathResponse" message="tns:GetControlByPathResponse" />
-      <fault wsam:Action="http://i.fauxpen/RemoteControlService/GetControlByPath/Fault/IllegalAccessException" name="IllegalAccessException" message="tns:IllegalAccessException" />
-    </operation>
-    <operation name="GetForms">
-      <input wsam:Action="http://i.fauxpen/RemoteControlService/GetFormsRequest" message="tns:GetForms" />
-      <output wsam:Action="http://i.fauxpen/RemoteControlService/GetFormsResponse" message="tns:GetFormsResponse" />
-    </operation>
-    <operation name="GetControlsList">
-      <input wsam:Action="http://i.fauxpen/RemoteControlService/GetControlsListRequest" message="tns:GetControlsList" />
-      <output wsam:Action="http://i.fauxpen/RemoteControlService/GetControlsListResponse" message="tns:GetControlsListResponse" />
-      <fault wsam:Action="http://i.fauxpen/RemoteControlService/GetControlsList/Fault/IllegalAccessException" name="IllegalAccessException" message="tns:IllegalAccessException" />
-    </operation>
-    <operation name="GetString">
-      <input wsam:Action="http://i.fauxpen/RemoteControlService/GetStringRequest" message="tns:GetString" />
-      <output wsam:Action="http://i.fauxpen/RemoteControlService/GetStringResponse" message="tns:GetStringResponse" />
-    </operation>
-    <operation name="foobar">
-      <input wsam:Action="http://i.fauxpen/RemoteControlService/foobarRequest" message="tns:foobar" />
-      <output wsam:Action="http://i.fauxpen/RemoteControlService/foobarResponse" message="tns:foobarResponse" />
-      <fault wsam:Action="http://i.fauxpen/RemoteControlService/foobar/Fault/IllegalAccessException" name="IllegalAccessException" message="tns:IllegalAccessException" />
+    <operation name="ClickControl">
+      <input wsam:Action="http://AWTomation.OpenGI.com/RemoteControlService/ClickControlRequest" message="tns:ClickControl" />
+      <output wsam:Action="http://AWTomation.OpenGI.com/RemoteControlService/ClickControlResponse" message="tns:ClickControlResponse" />
+      <fault wsam:Action="http://AWTomation.OpenGI.com/RemoteControlService/ClickControl/Fault/IllegalAccessException" name="IllegalAccessException" message="tns:IllegalAccessException" />
     </operation>
     <operation name="ScreenShot">
-      <input wsam:Action="http://i.fauxpen/RemoteControlService/ScreenShotRequest" message="tns:ScreenShot" />
-      <output wsam:Action="http://i.fauxpen/RemoteControlService/ScreenShotResponse" message="tns:ScreenShotResponse" />
-      <fault wsam:Action="http://i.fauxpen/RemoteControlService/ScreenShot/Fault/IOException" name="IOException" message="tns:IOException" />
+      <input wsam:Action="http://AWTomation.OpenGI.com/RemoteControlService/ScreenShotRequest" message="tns:ScreenShot" />
+      <output wsam:Action="http://AWTomation.OpenGI.com/RemoteControlService/ScreenShotResponse" message="tns:ScreenShotResponse" />
+      <fault wsam:Action="http://AWTomation.OpenGI.com/RemoteControlService/ScreenShot/Fault/IOException" name="IOException" message="tns:IOException" />
+      <fault wsam:Action="http://AWTomation.OpenGI.com/RemoteControlService/ScreenShot/Fault/AWTomationException" name="AWTomationException" message="tns:AWTomationException" />
+    </operation>
+    <operation name="GetString">
+      <input wsam:Action="http://AWTomation.OpenGI.com/RemoteControlService/GetStringRequest" message="tns:GetString" />
+      <output wsam:Action="http://AWTomation.OpenGI.com/RemoteControlService/GetStringResponse" message="tns:GetStringResponse" />
+    </operation>
+    <operation name="SetControl">
+      <input wsam:Action="http://AWTomation.OpenGI.com/RemoteControlService/SetControlRequest" message="tns:SetControl" />
+      <output wsam:Action="http://AWTomation.OpenGI.com/RemoteControlService/SetControlResponse" message="tns:SetControlResponse" />
+      <fault wsam:Action="http://AWTomation.OpenGI.com/RemoteControlService/SetControl/Fault/IllegalAccessException" name="IllegalAccessException" message="tns:IllegalAccessException" />
     </operation>
   </portType>
   <binding name="RemoteControlServicePortBinding" type="tns:RemoteControlService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="GetControlByLabel">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-      <fault name="IllegalAccessException">
-        <soap:fault use="literal" name="IllegalAccessException" namespace="" />
-      </fault>
-    </operation>
-    <operation name="SetControl">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-      <fault name="IllegalAccessException">
-        <soap:fault use="literal" name="IllegalAccessException" namespace="" />
-      </fault>
-    </operation>
     <operation name="GetControls">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="GetFormsArray">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="ClickButton">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-      <fault name="IllegalAccessException">
-        <soap:fault use="literal" name="IllegalAccessException" namespace="" />
-      </fault>
-    </operation>
-    <operation name="PressButton">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -228,49 +104,7 @@
         <soap:fault use="literal" name="IllegalAccessException" namespace="" />
       </fault>
     </operation>
-    <operation name="GetControlByPath">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-      <fault name="IllegalAccessException">
-        <soap:fault use="literal" name="IllegalAccessException" namespace="" />
-      </fault>
-    </operation>
-    <operation name="GetForms">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="GetControlsList">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-      <fault name="IllegalAccessException">
-        <soap:fault use="literal" name="IllegalAccessException" namespace="" />
-      </fault>
-    </operation>
-    <operation name="GetString">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="foobar">
+    <operation name="ClickControl">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -292,6 +126,30 @@
       </output>
       <fault name="IOException">
         <soap:fault use="literal" name="IOException" namespace="" />
+      </fault>
+      <fault name="AWTomationException">
+        <soap:fault use="literal" name="AWTomationException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="GetString">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="SetControl">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="IllegalAccessException">
+        <soap:fault use="literal" name="IllegalAccessException" namespace="" />
       </fault>
     </operation>
   </binding>

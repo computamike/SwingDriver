@@ -55,3 +55,4 @@ C:\Projects\Github\Java\SwingDriver\Java Remote Controller\Java Remote Controlle
 C:\Projects\Github\Java\SwingDriver\Java Remote Controller\Java Remote Controller\obj\Debug\Java_Remote_Controller.Form1.resources
 C:\Projects\Github\Java\SwingDriver\Java Remote Controller\Java Remote Controller\obj\Debug\Java_Remote_Controller.Properties.Resources.resources
 C:\Projects\Github\Java\SwingDriver\Java Remote Controller\Java Remote Controller\obj\Debug\Java Remote Controller.csproj.GenerateResource.Cache
+C:\Projects\Github\Java\SwingDriver\Java Remote Controller\Java Remote Controller\obj\Debug\Java Remote Controller.csprojResolveAssemblyReference.cache

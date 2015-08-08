@@ -109,31 +109,13 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Service References\ServiceReference1\Java_Remote_Controller.ServiceReference1.ClickButtonResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\ServiceReference1\Java_Remote_Controller.ServiceReference1.foobarResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\ServiceReference1\Java_Remote_Controller.ServiceReference1.GetControlByLabelResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\ServiceReference1\Java_Remote_Controller.ServiceReference1.GetControlByPathResponse.datasource">
+    <None Include="Service References\ServiceReference1\Java_Remote_Controller.ServiceReference1.ClickControlResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\ServiceReference1\Java_Remote_Controller.ServiceReference1.GetControlResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ServiceReference1\Java_Remote_Controller.ServiceReference1.GetControlsListResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
     <None Include="Service References\ServiceReference1\Java_Remote_Controller.ServiceReference1.GetControlsResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\ServiceReference1\Java_Remote_Controller.ServiceReference1.GetFormsArrayResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\ServiceReference1\Java_Remote_Controller.ServiceReference1.GetFormsResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\ServiceReference1\Java_Remote_Controller.ServiceReference1.GetStringResponse.datasource">
