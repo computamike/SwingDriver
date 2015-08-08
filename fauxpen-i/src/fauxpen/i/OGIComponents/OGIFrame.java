@@ -5,7 +5,7 @@
  */
 package fauxpen.i.OGIComponents;
 
-import fauxpen.i.RemoteService;
+import com.OpenGI.AWTomation.RemoteService;
 import java.awt.Window;
 import java.io.IOException;
 import java.util.logging.Level;

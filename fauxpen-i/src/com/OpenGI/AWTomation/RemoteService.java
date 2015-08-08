@@ -3,11 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package fauxpen.i;
+package com.OpenGI.AWTomation;
 
 import com.sun.net.httpserver.HttpContext;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpServer;
+import fauxpen.i.Inspector;
 import java.awt.AWTEvent;
 import java.awt.Component;
 import java.awt.Toolkit;
