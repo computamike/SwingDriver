@@ -19,11 +19,11 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:1970/RemoteService/RemoteControl?wsdl" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost.:1970/RemoteService/RemoteControl?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="RemoteControlService.wsdl" MetadataType="Wsdl" ID="d36a4786-48c7-48c4-a261-a5dcc903c36c" SourceId="1" SourceUrl="http://localhost:1970/RemoteService/RemoteControl?wsdl" />
-    <MetadataFile FileName="RemoteControl.xsd" MetadataType="Schema" ID="4885e11b-1e80-4b5a-829e-f7600ca924d3" SourceId="1" SourceUrl="http://localhost:1970/RemoteService/RemoteControl?xsd=1" />
+    <MetadataFile FileName="RemoteControl.xsd" MetadataType="Schema" ID="4f8d7e07-24bf-4219-a899-a499c66a1d0f" SourceId="1" SourceUrl="http://localhost.:1970/RemoteService/RemoteControl?xsd=1" />
+    <MetadataFile FileName="RemoteControlService.wsdl" MetadataType="Wsdl" ID="6baf5fe7-a775-469c-95b6-48be87f4e8d5" SourceId="1" SourceUrl="http://localhost.:1970/RemoteService/RemoteControl?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

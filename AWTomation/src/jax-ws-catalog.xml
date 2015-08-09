@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://www.webservicex.com/globalweather.asmx?WSDL" uri="wsdl/www.webservicex.com/globalweather.asmx.wsdl"/>
+    <system systemId="file:/C:/Users/Mike/Desktop/RemoteControl.wsdl" uri="wsdl/RemoteControl.wsdl"/>
+    <system systemId="http://localhost:1970/RemoteService/RemoteControl?wsdl" uri="wsdl/localhost_1970/RemoteService/RemoteControl.wsdl"/>
+    <system systemId="http://localhost:1970/RemoteService/RemoteControl?xsd=1" uri="wsdl/localhost_1970/RemoteService/RemoteControl.xsd_1.xsd"/>
+</catalog>

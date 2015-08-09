@@ -42,6 +42,17 @@ namespace Java_Remote_Controller
             var x = rc.GetControl("MainForm\\jButton1");
 
         }
+        [Test]
+        public void TestgETsTRING()
+        {
+            ServiceReference1.RemoteControlServiceClient rc = new ServiceReference1.RemoteControlServiceClient();
+            rc.ClientCredentials.UserName.UserName = "admin";
+            rc.ClientCredentials.UserName.Password = "password";
+
+            var x = rc.GetString();
+
+        }
+
 
         [Test]
         public void canGetAllValuesForAComboBox()

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="http://AWTomation.OpenGI.com/" targetNamespace="http://AWTomation.OpenGI.com/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:schema xmlns:tns="http://awtomation.opengi.com/" targetNamespace="http://awtomation.opengi.com/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:element name="AWTomationException" type="tns:AWTomationException" />
   <xs:element name="ClickControl" type="tns:ClickControl" />
   <xs:element name="ClickControlResponse" type="tns:ClickControlResponse" />
@@ -15,27 +15,6 @@
   <xs:element name="ScreenShotResponse" type="tns:ScreenShotResponse" />
   <xs:element name="SetControl" type="tns:SetControl" />
   <xs:element name="SetControlResponse" type="tns:SetControlResponse" />
-  <xs:complexType name="ClickControl">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="arg0" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="ClickControlResponse">
-    <xs:sequence />
-  </xs:complexType>
-  <xs:complexType name="IllegalAccessException">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="message" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="GetString">
-    <xs:sequence />
-  </xs:complexType>
-  <xs:complexType name="GetStringResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="return" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
   <xs:complexType name="SetControl">
     <xs:sequence>
       <xs:element minOccurs="0" name="arg0" type="xs:string" />
@@ -46,24 +25,35 @@
   <xs:complexType name="SetControlResponse">
     <xs:sequence />
   </xs:complexType>
-  <xs:complexType name="ScreenShot">
+  <xs:complexType name="IllegalAccessException">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="message" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ClickControl">
     <xs:sequence>
       <xs:element minOccurs="0" name="arg0" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="ScreenShotResponse">
+  <xs:complexType name="ClickControlResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="GetString">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="GetStringResponse">
     <xs:sequence>
-      <xs:element minOccurs="0" name="return" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="return" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="IOException">
+  <xs:complexType name="GetControls">
     <xs:sequence>
-      <xs:element minOccurs="0" name="message" type="xs:string" />
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="AWTomationException">
+  <xs:complexType name="GetControlsResponse">
     <xs:sequence>
-      <xs:element minOccurs="0" name="message" type="xs:string" />
+      <xs:element minOccurs="0" name="return" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="GetControl">
@@ -85,14 +75,24 @@
       <xs:element minOccurs="0" maxOccurs="unbounded" name="values" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="GetControls">
+  <xs:complexType name="ScreenShot">
     <xs:sequence>
       <xs:element minOccurs="0" name="arg0" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="GetControlsResponse">
+  <xs:complexType name="ScreenShotResponse">
     <xs:sequence>
-      <xs:element minOccurs="0" name="return" type="xs:string" />
+      <xs:element minOccurs="0" name="return" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AWTomationException">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="message" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="IOException">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="message" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
 </xs:schema>

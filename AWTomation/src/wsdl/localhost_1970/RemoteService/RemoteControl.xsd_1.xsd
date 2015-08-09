@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is JAX-WS RI 2.2.9-b130926.1035 svn-revision#5f6196f2b90e9460065a4c2f4e30e065b245e51e. --><xs:schema xmlns:tns="http://awtomation.opengi.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://awtomation.opengi.com/">
+
+<xs:element name="AWTomationException" type="tns:AWTomationException"></xs:element>
+
+<xs:element name="ClickControl" type="tns:ClickControl"></xs:element>
+
+<xs:element name="ClickControlResponse" type="tns:ClickControlResponse"></xs:element>
+
+<xs:element name="GetControl" type="tns:GetControl"></xs:element>
+
+<xs:element name="GetControlResponse" type="tns:GetControlResponse"></xs:element>
+
+<xs:element name="GetControls" type="tns:GetControls"></xs:element>
+
+<xs:element name="GetControlsResponse" type="tns:GetControlsResponse"></xs:element>
+
+<xs:element name="GetString" type="tns:GetString"></xs:element>
+
+<xs:element name="GetStringResponse" type="tns:GetStringResponse"></xs:element>
+
+<xs:element name="IOException" type="tns:IOException"></xs:element>
+
+<xs:element name="IllegalAccessException" type="tns:IllegalAccessException"></xs:element>
+
+<xs:element name="ScreenShot" type="tns:ScreenShot"></xs:element>
+
+<xs:element name="ScreenShotResponse" type="tns:ScreenShotResponse"></xs:element>
+
+<xs:element name="SetControl" type="tns:SetControl"></xs:element>
+
+<xs:element name="SetControlResponse" type="tns:SetControlResponse"></xs:element>
+
+<xs:complexType name="SetControl">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="arg1" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="arg2" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="SetControlResponse">
+<xs:sequence></xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="IllegalAccessException">
+<xs:sequence>
+<xs:element name="message" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ClickControl">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ClickControlResponse">
+<xs:sequence></xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="GetString">
+<xs:sequence></xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="GetStringResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="GetControls">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="GetControlsResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="GetControl">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="GetControlResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:ogiComponent" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ogiComponent">
+<xs:sequence>
+<xs:element name="checked" type="xs:boolean"></xs:element>
+<xs:element name="name" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="text" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="type" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="values" type="xs:string" nillable="true" minOccurs="0" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ScreenShot">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ScreenShotResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:base64Binary" nillable="true" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="AWTomationException">
+<xs:sequence>
+<xs:element name="message" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="IOException">
+<xs:sequence>
+<xs:element name="message" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
