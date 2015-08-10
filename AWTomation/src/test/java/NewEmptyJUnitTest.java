@@ -33,7 +33,7 @@ public class NewEmptyJUnitTest {
     {
         
         JComboBox potentialMatch = null;
-        fauxpen.i.MainForm mockedList = mock(fauxpen.i.MainForm.class);
+        fauxpen.i.MainForm mockedList = new MainForm();//mock(fauxpen.i.MainForm.class);
       
         
         Field[] fields = mockedList.getClass().getDeclaredFields();
