@@ -82,13 +82,6 @@
             <artifactId>mockito-core</artifactId>
             <version>1.10.19</version>
         </dependency>
-<!--        <dependency>
-            <groupId>com.OpenGI</groupId>
-            <artifactId>AWTomation</artifactId>
-            <version>1.0-SNAPSHOT</version>
-            <scope>test</scope>
-            <type>jar</type>
-        </dependency>-->
     </dependencies>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
